@@ -1,0 +1,35 @@
+<div class="container pt-3">
+        <div class='rounded border p-3 '>
+         <p>Estudios del paciente: {{paciente.name}}</p>       
+        </div>   
+    <div class='rounded border p-3 '>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Estudio</th>
+                    <th>Fecha</th>
+                    <th>Ver series</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let study of patientStudies">
+                    <th scope="row">{{study.name}} </th>
+                    <td>
+                        <p> {{study.time |date:'dd-MM-yyyy HH:mm'}}</p>
+                    </td>
+                    <td> <img [src]="descagarImg" (click)="verSeries(study.id)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class='rounded border p-3 '>
+            <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
+        
+        </div>
+        </div>
+
+
+
+
+
+<router-outlet></router-outlet>

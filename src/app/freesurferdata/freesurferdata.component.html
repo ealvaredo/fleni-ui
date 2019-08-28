@@ -1,0 +1,20 @@
+<div class="container pt-3">
+    <div class='rounded border p-3 '>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Nombre</th> 
+            <th>Ver pacientes</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let database of databases">
+            <th scope="row"> {{database}} </th>
+            <td scope="row"> 
+                 <img src="../assets/images/eye.png" title="Ver pacientes" (click)='onPatients(database)'>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

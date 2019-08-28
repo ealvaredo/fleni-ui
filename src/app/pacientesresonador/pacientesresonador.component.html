@@ -1,0 +1,40 @@
+<div class="container pt-3">
+    <div class='rounded border p-3 '>
+      <h1>Pacientes en el resonador</h1>
+    </div>
+    <div *ngIf="patients.length > 0"  class='rounded border p-3 '>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre del paciente</th>
+                    <th>Fecha</th>
+                    <th>Descargar</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let patient of patients">
+                    <th scope="row">{{patient.name}} </th>
+                    <td>{{patient.date | date:'dd-MM-yyyy HH:mm'}}</td>
+                    <td><img src="../assets/images/descargar.png" (click)="descargar(patient.id)" title="Descargar paciente"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="patients.length < 1"  class='rounded border p-3 '>
+        <p>No se encontraron pacientes en el resonador. Puede refrescar los datos del resonador 
+            usando el botón 'Refrescar datos'. Esta operación puede tardar unos minutos.
+        </p>    
+    </div>
+
+    <div class='rounded border p-3 '>
+
+        <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
+        <button  type="button" class="btn btn-outline-primary" (click)="refrescar()">Refrescar datos</button>
+   
+    </div>
+        
+</div>
+
+
+<router-outlet></router-outlet>

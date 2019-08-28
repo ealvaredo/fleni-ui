@@ -1,0 +1,72 @@
+<div class="container pt-3">
+  <div class='rounded border p-3 '>
+      <h5>
+        Paciente: {{paciente.name}}
+      </h5>
+      Esta lista muestra los pacientes sanos candidatos para realizar la comparación de FA. Los pacientes que serán tenidos en cuenta para esta comparación serán aquellos que tengan el 'ESTADO TBSS' en valor 'PROCESSED' 
+    </div>
+<div class='rounded border p-3 '>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Nombre del paciente</th>
+        <th>Identificador</th>
+        <th>Edad</th>
+        <th>Sexo</th>
+        <th>Abrir con MRVIEW</th>
+        <!--
+        <th>Verificado</th>
+        -->
+        <th>Estado FDT</th>
+
+        <th>Estado TBSS</th>
+        <th>Descartar</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of pacientes">
+        <th scope="row">{{patient.name}} </th>
+        <td>{{patient.id}}</td>
+        <td>{{patient.age}}</td>
+        <td>{{patient.sex}}</td>
+        <td> <img  src="../assets/images/eye.png" (click)="onMrview(patient.id)" title="Abrir en Mrview"> </td>
+       <!--
+        <td><input #verificar type="checkbox" [checked]='patient.verificado' (click)="verificado(patient.id, verificar.checked)" title='Verificado.'></td>
+        -->
+        <td>
+          <div *ngIf="patient.fdtPipeline != null && patient.fdtPipeline.state == 'ERROR'">Ver Error</div>
+          <div *ngIf="patient.fdtPipeline != null && patient.fdtPipeline.state == 'QUEUE'">En cola</div>
+          <div *ngIf="patient.fdtPipeline != null && patient.fdtPipeline.state == 'PROCESSING'">Procesando</div>
+          <img *ngIf="patient.fdtPipeline != null && patient.fdtPipeline.state == 'PROCESSED'" src="../assets/images/tbss.png" (click)="verFreeSurfer(patient.id)" title="Ver freesurfer">
+          <div *ngIf="patient.fdtPipeline != null && patient.fdtPipeline.state == 'NEW'">Esperando FDT</div>
+
+          <!--
+              <input *ngIf="patient.tbsState == 'NEW'" type="checkbox" (click)="onDti(patient.id)" title='Procesar dti.'>
+          -->
+        </td>
+      <td>
+            <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'ERROR'">Ver Error</div>
+            <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'QUEUE'">En cola</div>
+            <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'PROCESSING'">Procesando</div>
+            <img *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'PROCESSED'" src="../assets/images/tbss.png" (click)="verFreeSurfer(patient.id)" title="Ver freesurfer">
+            <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'NEW'">Esperando FDT</div>
+
+            <!--
+                <input *ngIf="patient.tbsState == 'NEW'" type="checkbox" (click)="onDti(patient.id)" title='Procesar dti.'>
+            -->
+          </td>
+        <td>
+
+            <button  title='Al descartar la serie, no será tenida en cuenta la siguiente vez que se calculen los pacientes candidatos para el actual paciente en estudio o de cualquier otro paciente en estudio.' type="button" class="btn btn-outline-primary" (click)="descartar(patient.id)">Descartar</button>
+
+        </td>            
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class='rounded border p-3 '>
+  <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
+  <button type="button" class="btn btn-outline-primary" (click)="comparar()">Comparar</button>
+</div>
+</div>

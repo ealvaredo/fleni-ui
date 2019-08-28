@@ -1,0 +1,25 @@
+<div class="container pt-3">
+  <div class='rounded border p-3 '>
+
+      <table class="table">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Imagen</th> 
+                  <th>Descargar imagen</th> 
+                 </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let image of files" >
+                      <th scope="row">  {{image.name}}</th>
+                      <td> <img [src]="descagarImg" (click)="descargarImagen(image.name)"></td>
+                      
+                   </tr>
+                  </tbody>
+                      </table>
+
+
+      
+</div>
+
+</div>
+

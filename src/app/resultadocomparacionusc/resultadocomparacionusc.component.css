@@ -1,0 +1,111 @@
+.table  {
+    font-size: 10px;
+}
+
+
+ table  {
+    font-size: 10px;
+}
+
+.table th  {
+    text-align: center;
+}
+
+.datos {
+    font-weight: bold;
+}
+
+
+.desvio1false {
+    border-color: yellow;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+}
+
+.desvio1true {
+    border-color: blue;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+}
+
+
+.desvio0false {
+    border-color: green;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+}
+
+.desvio0true {
+    border-color: cyan;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+}
+
+
+
+.desvio2false {
+    border-color: red;
+    border-style: solid;
+    border-width: 3px 3px 3px 3px;
+}
+
+.desvio2true {
+    border-color: #222E55;
+    border-style: solid;
+    border-width: 3px 3px 3px 3px;
+}
+
+
+.desvio3false, .desvio4false , .desvio5false , .desvio6false,  .desvio7false , .desvio8false ,
+.desvio9false , .desvio10false , .desvio11false , .desvio12false , .desvio13false , 
+.desvio14false , .desvio15false, .desvio16false , .desvio17false, .desvio18false, 
+.desvio19false, .desvio20false, .desvio21false, .desvio22false, .desvio23false, .desvio24false, 
+.desvio25false, .desvio26false, .desvio27false, .desvio28false , .desvio29false , 
+.desvio30false , .desvio31false , .desvio32false , .desvio33false , .desvio34false , 
+.desvio35false , .desvio36false , .desvio37false , .desvio38false , .desvio39false , 
+.desvio40false , .desvio41false , .desvio42false , .desvio43false , .desvio44false , 
+.desvio45false , .desvio46false , .desvio47false , .desvio48false , .desvio49false , 
+.desvio50false , .desvio51false , .desvio52false , .desvio53false , .desvio54false , 
+.desvio55false , .desvio56false , .desvio57false , .desvio58false , .desvio59false , 
+.desvio60false
+ {
+    border-color: purple;
+    border-style: solid;
+    border-width: 4px 4px 4px 4px;
+}
+
+.desvio3true, .desvio4true , .desvio5true , .desvio6true,  .desvio7true , .desvio8true ,
+.desvio9true , .desvio10true , .desvio11true , .desvio12true , .desvio13true , 
+.desvio14true , .desvio15true, .desvio16true , .desvio17true, .desvio18true, 
+.desvio19true, .desvio20true, .desvio21true, .desvio22true, .desvio23true, .desvio24true, 
+.desvio25true, .desvio26true, .desvio27true, .desvio28true , .desvio29true , 
+.desvio30true , .desvio31true , .desvio32true , .desvio33true , .desvio34true , 
+.desvio35true , .desvio36true , .desvio37true , .desvio38true , .desvio39true , 
+.desvio40true , .desvio41true , .desvio42true , .desvio43true , .desvio44true , 
+.desvio45true , .desvio46true , .desvio47true , .desvio48true , .desvio49true , 
+.desvio50true , .desvio51true , .desvio52true , .desvio53true , .desvio54true , 
+.desvio55true , .desvio56true , .desvio57true , .desvio58true , .desvio59true , 
+.desvio60true
+ {
+    border-color: #087264;
+    border-style: solid;
+    border-width: 4px 4px 4px 4px;
+}
+
+
+
+
+.resultados td {
+    padding: 1px;
+    text-align: center;
+    vertical-align: center;
+}
+
+.region {
+    text-align: left !important;   
+}
+
+.titulo {
+    font-size: 16px;
+    font-weight: bold;
+}

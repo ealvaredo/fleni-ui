@@ -1,0 +1,9 @@
+<h6>{{title}}</h6>
+<div *ngFor="let color of colores">
+  <div *ngIf='color.desvio < desvioMax && color.desvio >= desvioMin'>
+    <div *ngIf='color.negativo == negativo' class='square'
+      [style.background-color]="'rgb(' + color.r + ',' + color.g  + ',' + color.b + ')'">
+      <span>{{color.name}}</span>
+    </div>
+  </div>
+</div>

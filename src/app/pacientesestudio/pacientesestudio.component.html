@@ -1,0 +1,38 @@
+<div class="container pt-3">
+  <div class='rounded border p-3 '>
+      <table class="table">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Nombre del paciente</th>
+                  <th>Identificador</th>
+                  <th>Edad</th>
+                  <th>Sexo</th>
+                  <th>Ver estudios</th>
+                  <th>Eliminar</th>
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let patient of pacientes">
+                  <th scope="row">{{patient.name}} </th>
+                  <td>{{patient.id}}</td>
+                  <td>{{patient.age}}</td>
+                  <td>{{patient.sex}}</td>
+                  <td><img src="../assets/images/eye.png" (click)="verEstudios(patient.id)" title="Ver estudios"></td>
+                  <td>
+                    <!--
+                    <img [src]="trashImagen" (click)="deletePatient(patient.id)" title="Eliminar paciente">
+                  -->
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class='rounded border p-3 '>
+          <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
+      </div>
+  
+</div>
+
+
+<router-outlet></router-outlet>

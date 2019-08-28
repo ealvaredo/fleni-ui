@@ -1,0 +1,92 @@
+<div class="container pt-3">
+    <div class='rounded border p-3 '>
+        <h3>
+          Pacientes en la base de datos: {{database.name}}
+        </h3>
+      </div>
+  <div class='rounded border p-3 '>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre del paciente</th>
+          <th>Edad</th>
+          <th>Sexo</th>
+          <th>dti_recon</th>
+          <th>FDT (FA)</th>
+          <th>TBSS</th>
+          <th colspan='4'>Freesurfer</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <th scope="row">{{patient.name}} </th>
+          <td>{{patient.age}}</td>
+          <td>{{patient.sex}}</td>
+          <td>
+              <input *ngIf="patient.state == 'NEW'" type="checkbox" (click)="onDti(patient.id)" title='Procesar dti.'>
+
+
+
+            <!--    
+              -->
+          </td>
+
+          <td>
+            <div *ngIf="patient.fdtPipeline != null &&  patient.fdtPipeline.state == 'ERROR'" title='{{patient.fdtPipeline.message}}'>Ver Error</div>
+            <div *ngIf="patient.fdtPipeline != null &&  patient.fdtPipeline.state == 'QUEUE'">En cola</div>
+            <div *ngIf="patient.fdtPipeline != null &&  patient.fdtPipeline.state == 'PROCESSING'">Procesando</div>
+            <img *ngIf="patient.fdtPipeline != null &&  patient.fdtPipeline.state == 'PROCESSED'" src="../assets/images/fa.jpg" (click)="onTrackVis(patient.id)" title="Abrir en TrackVis">
+            <!--    
+                <input *ngIf="patient.fdtState == 'NEW'" type="checkbox" (click)="onDti(patient.id)" title='Procesar dti.'>
+              -->
+          </td>
+
+          <td>
+            <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'ERROR'">Ver Error</div>
+            <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'QUEUE'">En cola</div>
+            <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'PROCESSING'">Procesando</div>
+            <img *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'PROCESSED'" src="../assets/images/tbss.png" (click)="onTrackVis(patient.id)" title="Abrir en TrackVis">
+            <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'NEW'">Esperando FDT</div>
+
+            <!--
+                <input *ngIf="patient.tbsState == 'NEW'" type="checkbox" (click)="onDti(patient.id)" title='Procesar dti.'>
+            -->
+          </td>
+
+          <td>
+
+              <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'DISABLED'">Deshabilitado</div>
+              <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'ERROR'">Ver Error</div>
+              <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'QUEUE'">En cola</div>
+              <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'PROCESSING'">Procesando</div>
+              <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'PROCESSED'">
+                <img  src="../assets/images/tbss.png" (click)="onTrackVis(patient.id)" title="Abrir en TrackVis">
+     
+              </div>   
+
+          </td>
+
+          <td> 
+
+              <p *ngIf="patient.freeSurfer != null">{{patient.freeSurfer.inicio | date:'dd-MM-yyyy HH:mm'}} </p>   
+
+          </td>
+          <td>
+              <p *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'PROCESSED'">{{patient.freeSurfer.fin | date:'dd-MM-yyyy HH:mm'}} </p>   
+  
+          </td>
+          <td> 
+
+              <p *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'PROCESSED'">{{(patient.freeSurfer.fin - patient.freeSurfer.inicio)  / 1000 / 60 / 60 | number: '1.1-2'  }} horas  </p>   
+
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class='rounded border p-3 '>
+    <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
+  </div>
+</div>

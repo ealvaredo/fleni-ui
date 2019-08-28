@@ -1,0 +1,16 @@
+<div class="container pt-3">
+  <h1>Buscar paciente en resonadores</h1>
+  <div class='rounded border p-3 '>
+    <form>
+      <div class='form-group'>
+        <label>Ingrear nombre del paciente</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+      </div>
+    </form>
+  </div>
+
+  <div class='rounded border p-3 '>
+    <button type="button" class="btn btn-outline-primary" (click)="search()">Buscar</button>
+  <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
+
+</div>

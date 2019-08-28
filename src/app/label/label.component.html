@@ -1,0 +1,13 @@
+<div class='rounded border p-3 '>
+    <form>
+      <div class='form-group'>
+        <label>Nombre</label>
+        <input type="text" class="form-control" id="name" name='name' [(ngModel)]="label.name">
+      </div>
+    </form>
+  </div>
+  <div class='rounded border p-3 '>
+    <button type="button" class="btn btn-outline-primary" (click)="save()">Guardar</button>
+    <button type="button" class="btn btn-outline-primary" (click)="volver()">Cerrar</button>
+  
+  </div>

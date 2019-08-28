@@ -1,0 +1,33 @@
+<div class='rounded border p-3 '>
+  <form>
+    <div class='form-group'>
+      <label>Nombre</label>
+      <input type="text" class="form-control" id="name" name='name' [(ngModel)]="database.name">
+    </div>
+
+    <div class='form-group'>
+      <label>URL</label>
+      <input type="text" class="form-control" id="site" name='site' [(ngModel)]="database.site">
+    </div>
+
+    <div class='form-group'>
+      <label>Descripción</label>
+      <input type="text" class="form-control" id="description" name='description' [(ngModel)]="database.description">
+    </div>
+
+    <div class='form-group'>
+      <label>Fecha</label>
+      <div>{{database.date | date:'dd-MM-yyyy HH:mm'}}</div>
+    </div>
+    <div class='form-group'>
+      <label>Ubicación</label>
+      <div>{{database.path }}</div>
+    </div>
+
+  </form>
+</div>
+<div class='rounded border p-3 '>
+  <button type="button" class="btn btn-outline-primary" (click)="save()">Guardar</button>
+  <button type="button" class="btn btn-outline-primary" (click)="volver()">Cerrar</button>
+
+</div>

@@ -1,0 +1,103 @@
+<h6>
+   {{titulo}}
+</h6>
+<div class='rounded border p-3 '>
+  <table class="table resultados">
+    <thead class="thead-dark">
+      <tr>
+        <th>StructName</th>
+        <!--
+        <th colspan="3">NumVert</th>
+        -->
+        <th colspan="3">SurfArea</th>
+        <th colspan="3">GrayVol</th>
+        <th colspan="3">ThickAvg</th>
+        <th colspan="3">ThickStd</th>
+        <th colspan="3">MeanCurv</th>
+        <th colspan="3">GausCurv</th>
+        <th colspan="3">FoldInd</th>
+        <th colspan="3">CurvInd</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td class='datos'>Media</td>
+        <td class='datos'>Desvío</td>
+        <td class='datos'>Paciente</td>
+
+        <td class='datos'>Media</td>
+        <td class='datos'>Desvío</td>
+        <td class='datos'>Paciente</td>
+
+        <td class='datos'>Media</td>
+        <td class='datos'>Desvío</td>
+        <td class='datos'>Paciente</td>
+
+        <td class='datos'>Media</td>
+        <td class='datos'>Desvío</td>
+        <td class='datos'>Paciente</td>
+
+        <td class='datos'>Media</td>
+        <td class='datos'>Desvío</td>
+        <td class='datos'>Paciente</td>
+
+        <td class='datos'>Media</td>
+        <td class='datos'>Desvío</td>
+        <td class='datos'>Paciente</td>
+
+        <td class='datos'>Media</td>
+        <td class='datos'>Desvío</td>
+        <td class='datos'>Paciente</td>
+
+        <td class='datos'>Media</td>
+        <td class='datos'>Desvío</td>
+        <td class='datos'>Paciente</td>
+
+      </tr>
+      <tr *ngFor="let stat of stats">
+        <th class='region' scope="row">{{stat.structName}} </th>
+        <td>{{stat.surfArea.media | number: '1.1-2'}}</td>
+        <td>{{stat.surfArea.desvio | number: '1.1-2'}}</td>
+        <td title=" menor a {{stat.surfArea.cantidadDesvio + 1 }} desvío standard" class='desvio{{stat.surfArea.cantidadDesvio}}{{stat.surfArea.negativo}}'>{{stat.surfArea.patologico
+          | number: '1.1-2'}}</td>
+
+        <td>{{stat.grayVol.media | number: '1.1-2'}}</td>
+        <td>{{stat.grayVol.desvio | number: '1.1-2'}}</td>
+        <td title=" menor a {{stat.grayVol.cantidadDesvio + 1 }} desvío standard" class='desvio{{stat.grayVol.cantidadDesvio}}{{stat.grayVol.negativo}}'>{{stat.grayVol.patologico
+          | number: '1.1-2'}}</td>
+
+        <td>{{stat.thickAvg.media | number: '1.1-2'}}</td>
+        <td>{{stat.thickAvg.desvio | number: '1.1-2'}}</td>
+        <td title=" menor a {{stat.thickAvg.cantidadDesvio + 1 }} desvío standard" class='desvio{{stat.thickAvg.cantidadDesvio}}{{stat.thickAvg.negativo}}'>{{stat.thickAvg.patologico
+          | number: '1.1-2'}}</td>
+
+        <td>{{stat.thickStd.media | number: '1.1-2'}}</td>
+        <td>{{stat.thickStd.desvio | number: '1.1-2'}}</td>
+        <td title=" menor a {{stat.thickStd.cantidadDesvio + 1 }} desvío standard" class='desvio{{stat.thickStd.cantidadDesvio}}{{stat.thickStd.negativo}}'>{{stat.thickStd.patologico
+          | number: '1.1-2'}}</td>
+
+        <td>{{stat.meanCurv.media | number: '1.1-3'}}</td>
+        <td>{{stat.meanCurv.desvio | number: '1.1-3'}}</td>
+        <td title=" menor a {{stat.meanCurv.cantidadDesvio + 1 }} desvío standard" class='desvio{{stat.meanCurv.cantidadDesvio}}{{stat.meanCurv.negativo}}'>{{stat.meanCurv.patologico
+          | number: '1.1-3'}}</td>
+
+        <td>{{stat.gausCurv.media | number: '1.1-3'}}</td>
+        <td>{{stat.gausCurv.desvio | number: '1.1-3'}}</td>
+        <td title=" menor a {{stat.gausCurv.cantidadDesvio + 1 }} desvío standard" class='desvio{{stat.gausCurv.cantidadDesvio}}{{stat.gausCurv.negativo}}'>{{stat.gausCurv.patologico
+          | number: '1.1-3'}}</td>
+
+        <td>{{stat.foldInd.media | number: '1.1-2'}}</td>
+        <td>{{stat.foldInd.desvio | number: '1.1-2'}}</td>
+        <td title=" menor a {{stat.foldInd.cantidadDesvio + 1 }} desvío standard" class='desvio{{stat.foldInd.cantidadDesvio}}{{stat.foldInd.negativo}}'>{{stat.foldInd.patologico
+          | number: '1.1-2'}}</td>
+
+        <td>{{stat.curvInd.media | number: '1.1-3'}}</td>
+        <td>{{stat.curvInd.desvio | number: '1.1-3'}}</td>
+        <td title=" menor a {{stat.curvInd.cantidadDesvio + 1 }} desvío standard" class='desvio{{stat.curvInd.cantidadDesvio}}{{stat.curvInd.negativo}}'>{{stat.curvInd.patologico
+          | number: '1.1-3'}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

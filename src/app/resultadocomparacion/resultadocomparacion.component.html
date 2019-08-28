@@ -1,0 +1,490 @@
+<div class="container pt-3">
+  <div class='rounded border p-3 '>
+    <h5>
+      Resultados de la comparación de {{stats.pacientePatologico.name}} ( {{stats.pacientePatologico.age}} años) con {{stats.cantidadPacientesSanos}} pacientes sanos (edad promedio {{stats.ageAverage}} años). Fecha de generación: {{stats.date | date:'dd-MM-yyyy HH:mm' }}
+    </h5>
+    <div class='rounded border p-3 '>
+      <div class='rounded border p-3 '>
+        <h6>Volúmenes</h6>
+        <div class='rounded border p-3 '>
+          <table class="table resultados">
+            <thead class="thead-dark">
+              <tr>
+                <th>Volumen</th>
+                <th>Media</th>
+                <th>Desvío</th>
+                <th>Paciente</th>
+              </tr>
+            </thead>
+            <tr>
+              <td> brainSeg</td>
+              <td>{{stats.volumenes.brainSeg.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.brainSeg.desvio| number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.brainSeg.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.brainSeg.cantidadDesvio}}{{stats.volumenes.brainSeg.negativo}}'>
+                {{stats.volumenes.brainSeg.patologico}}</td>
+            </tr>
+            <tr>
+              <td> brainSegNotVent</td>
+              <td>{{stats.volumenes.brainSegNotVent.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.brainSegNotVent.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.brainSegNotVent.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.brainSegNotVent.cantidadDesvio}}{{stats.volumenes.brainSegNotVent.negativo}}'>
+                {{stats.volumenes.brainSegNotVent.patologico}}</td>
+            </tr>
+
+            <tr>
+              <td> brainSegNotVentSurf</td>
+              <td>{{stats.volumenes.brainSegNotVentSurf.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.brainSegNotVentSurf.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.brainSegNotVentSurf.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.brainSegNotVentSurf.cantidadDesvio}}{{stats.volumenes.brainSegNotVentSurf.negativo}}'>
+                {{stats.volumenes.brainSegNotVentSurf.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> ventricleChoroidVol</td>
+              <td>{{stats.volumenes.ventricleChoroidVol.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.ventricleChoroidVol.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.ventricleChoroidVol.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.ventricleChoroidVol.cantidadDesvio}}{{stats.volumenes.ventricleChoroidVol.negativo}}'>
+                {{stats.volumenes.ventricleChoroidVol.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> lhCortex</td>
+              <td>{{stats.volumenes.lhCortex.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.lhCortex.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.lhCortex.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.lhCortex.cantidadDesvio}}{{stats.volumenes.lhCortex.negativo}}'>
+                {{stats.volumenes.lhCortex.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> rhCortex</td>
+              <td>{{stats.volumenes.rhCortex.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.rhCortex.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.rhCortex.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.rhCortex.cantidadDesvio}}{{stats.volumenes.rhCortex.negativo}}'>
+                {{stats.volumenes.rhCortex.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> cortex</td>
+              <td>{{stats.volumenes.cortex.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.cortex.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.cortex.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.cortex.cantidadDesvio}}{{stats.volumenes.cortex.negativo}}'>
+                {{stats.volumenes.brainSeg.patologico}}'>{{stats.volumenes.cortex.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> lhCerebralWhiteMatter</td>
+              <td>{{stats.volumenes.lhCerebralWhiteMatter.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.lhCerebralWhiteMatter.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.lhCerebralWhiteMatter.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.lhCerebralWhiteMatter.cantidadDesvio}}{{stats.volumenes.lhCerebralWhiteMatter.negativo}}'>
+                {{stats.volumenes.lhCerebralWhiteMatter.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> rhCerebralWhiteMatter</td>
+              <td>{{stats.volumenes.rhCerebralWhiteMatter.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.rhCerebralWhiteMatter.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.rhCerebralWhiteMatter.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.rhCerebralWhiteMatter.cantidadDesvio}}{{stats.volumenes.rhCerebralWhiteMatter.negativo}}'>
+                {{stats.volumenes.rhCerebralWhiteMatter.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> cerebralWhiteMatter</td>
+              <td>{{stats.volumenes.cerebralWhiteMatter.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.cerebralWhiteMatter.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.cerebralWhiteMatter.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.cerebralWhiteMatter.cantidadDesvio}}{{stats.volumenes.cerebralWhiteMatter.negativo}}'>
+                {{stats.volumenes.cerebralWhiteMatter.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> subCortGray</td>
+              <td>{{stats.volumenes.subCortGray.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.subCortGray.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.subCortGray.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.subCortGray.cantidadDesvio}}{{stats.volumenes.subCortGray.negativo}}'>
+                {{stats.volumenes.subCortGray.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> totalGray</td>
+              <td>{{stats.volumenes.totalGray.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.totalGray.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.totalGray.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.totalGray.cantidadDesvio}}{{stats.volumenes.totalGray.negativo}}'>
+                {{stats.volumenes.totalGray.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> supraTentorial</td>
+              <td>{{stats.volumenes.supraTentorial.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.supraTentorial.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.supraTentorial.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.supraTentorial.cantidadDesvio}}{{stats.volumenes.supraTentorial.negativo}}'>
+                {{stats.volumenes.supraTentorial.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> supraTentorialNotVent</td>
+              <td>{{stats.volumenes.supraTentorialNotVent.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.supraTentorialNotVent.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.supraTentorialNotVent.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.supraTentorialNotVent.cantidadDesvio}}{{stats.volumenes.supraTentorialNotVent.negativo}}'>
+                {{stats.volumenes.supraTentorialNotVent.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> supraTentorialNotVentVox</td>
+              <td>{{stats.volumenes.supraTentorialNotVentVox.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.supraTentorialNotVentVox.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.supraTentorialNotVentVox.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.supraTentorialNotVentVox.cantidadDesvio}}{{stats.volumenes.supraTentorialNotVentVox.negativo}}'>
+                {{stats.volumenes.supraTentorialNotVentVox.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> mask</td>
+              <td>{{stats.volumenes.mask.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.mask.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.mask.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.mask.cantidadDesvio}}{{stats.volumenes.mask.negativo}}'>
+                {{stats.volumenes.mask.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> brainSegVoltoeTIV</td>
+              <td>{{stats.volumenes.brainSegVoltoeTIV.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.brainSegVoltoeTIV.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.brainSegVoltoeTIV.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.brainSegVoltoeTIV.cantidadDesvio}}{{stats.volumenes.brainSegVoltoeTIV.negativo}}'>
+                {{stats.volumenes.brainSegVoltoeTIV.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> maskVoltoeTIV</td>
+              <td>{{stats.volumenes.maskVoltoeTIV.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.maskVoltoeTIV.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.maskVoltoeTIV.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.maskVoltoeTIV.cantidadDesvio}}{{stats.volumenes.maskVoltoeTIV.negativo}}'>
+                {{stats.volumenes.maskVoltoeTIV.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> lhSurfaceHoles</td>
+              <td>{{stats.volumenes.lhSurfaceHoles.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.lhSurfaceHoles.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.lhSurfaceHoles.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.lhSurfaceHoles.cantidadDesvio}}{{stats.volumenes.lhSurfaceHoles.negativo}}'>
+                {{stats.volumenes.lhSurfaceHoles.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> rhSurfaceHoles</td>
+              <td>{{stats.volumenes.rhSurfaceHoles.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.rhSurfaceHoles.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.rhSurfaceHoles.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.rhSurfaceHoles.cantidadDesvio}}{{stats.volumenes.rhSurfaceHoles.negativo}}'>
+                {{stats.volumenes.rhSurfaceHoles.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> surfaceHoles</td>
+              <td>{{stats.volumenes.surfaceHoles.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.surfaceHoles.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.surfaceHoles.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.surfaceHoles.cantidadDesvio}}{{stats.volumenes.surfaceHoles.negativo}}'>
+                {{stats.volumenes.surfaceHoles.patologico | number: '1.1-2'}}</td>
+            </tr>
+
+            <tr>
+              <td> estimatedTotalIntraCranialVol</td>
+              <td>{{stats.volumenes.estimatedTotalIntraCranialVol.media | number: '1.1-2'}}</td>
+              <td>{{stats.volumenes.estimatedTotalIntraCranialVol.desvio | number: '1.1-2'}}</td>
+              <td title=" > {{stats.volumenes.estimatedTotalIntraCranialVol.cantidadDesvio + 1 }} desvío standard"
+                class='desvio{{stats.volumenes.estimatedTotalIntraCranialVol.cantidadDesvio}}{{stats.volumenes.estimatedTotalIntraCranialVol.negativo}}'>
+                {{stats.volumenes.estimatedTotalIntraCranialVol.patologico | number: '1.1-2'}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+
+      <div class='rounded border p-3 '>
+        <app-aparctable [stats]="stats.left" [titulo]="'Left'"></app-aparctable>
+        <button type="button" class="btn btn-outline-primary" (click)="freeviewLeft()">Ver en freeview</button>
+        <button type="button" class="btn btn-outline-primary" (click)="compararGrupoEspesorCortialLeft()">Comparar grupo
+          espesor cortical</button>
+        <button type="button" class="btn btn-outline-primary" (click)="compararGrupoVolumetricoLeft()">Comparar grupo
+          volumétrico</button>
+      </div>
+      <app-referenciasfreeview [annotations]="stats.annotations"></app-referenciasfreeview>
+
+
+      <div class='rounded border p-3 '>
+        <app-aparctable [stats]="stats.right" [titulo]="'Right'"></app-aparctable>
+        <button type="button" class="btn btn-outline-primary" (click)="freeviewRight()">Ver en freeview</button>
+        <button type="button" class="btn btn-outline-primary" (click)="compararGrupoEspesorCortialRight()">Comparar
+          grupo espesor cortical</button>
+        <button type="button" class="btn btn-outline-primary" (click)="compararGrupoVolumetricoRight()">Comparar grupo
+          volumétrico</button>
+      </div>
+
+      <div class='rounded border p-3 '>
+        <app-aparctable [stats]="stats.leftAparc2009Stat" [titulo]="'leftAparc2009Stat'"></app-aparctable>
+        <button type="button" class="btn btn-outline-primary" (click)="freeviewLeftAparc2009()">Ver en freeview</button>
+        <button type="button" class="btn btn-outline-primary"
+          (click)="compararGrupoEspesorCortialLeftAparc2009()">Comparar grupo espesor cortical</button>
+        <button type="button" class="btn btn-outline-primary" (click)="compararGrupoVolumetricoLeftAparc2009()">Comparar
+          grupo volumétrico</button>
+      </div>
+
+      <div class='rounded border p-3 '>
+        <app-aparctable [stats]="stats.rightAparc2009Stat" [titulo]="'rightAparc2009Stat'"></app-aparctable>
+        <button type="button" class="btn btn-outline-primary" (click)="freeviewRightAparc2009()">Ver en
+          freeview</button>
+        <button type="button" class="btn btn-outline-primary"
+          (click)="compararGrupoEspesorCortialRightAparc2009()">Comparar grupo espesor cortical</button>
+        <button type="button" class="btn btn-outline-primary"
+          (click)="compararGrupoVolumetricoRightAparc2009()">Comparar grupo volumétrico</button>
+      </div>
+
+      <div class='rounded border p-3 '>
+        <app-aparctable [stats]="stats.leftAparcPialStat" [titulo]="'leftAparcPialStat'"></app-aparctable>
+        <button type="button" class="btn btn-outline-primary" (click)="freeviewAparcPial()">Ver en freeview</button>
+      </div>
+
+      <div class='rounded border p-3 '>
+        <app-aparctable [stats]="stats.rightAparcPialStat" [titulo]="'rightAparcPialStat'"></app-aparctable>
+        <button type="button" class="btn btn-outline-primary" (click)="freeviewAparcPial()">Ver en freeview</button>
+      </div>
+
+      <div class='rounded border p-3 '>
+        <app-aparctable [stats]="stats.leftAparcDKTatlasStat" [titulo]="'leftAparcDKTatlasStat'"></app-aparctable>
+        <button type="button" class="btn btn-outline-primary" (click)="freeviewLeftDKT()">Ver en freeview</button>
+      </div>
+
+      <div class='rounded border p-3 '>
+        <app-aparctable [stats]="stats.rightAparcDKTatlasStat" [titulo]="'rightAparcDKTatlasStat'"></app-aparctable>
+        <button type="button" class="btn btn-outline-primary" (click)="freeviewLeftDKT()">Ver en freeview</button>
+      </div>
+
+
+      <div class='rounded border p-3 '>
+        <h6>
+          aseg.stats
+        </h6>
+        <div class='rounded border p-3 '>
+          <table class="table resultados">
+            <thead class="thead-dark">
+              <tr>
+                <th>Structure Name</th>
+                <th>nVoxels</th>
+                <th colspan="3">volume_mm3</th>
+                <th colspan="3">normMean</th>
+                <th colspan="3">normStdDev</th>
+                <th colspan="3">normMin</th>
+                <th colspan="3">normMax</th>
+                <th colspan="3">normRange</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+
+              </tr>
+
+              <tr *ngFor="let stat of stats.aseg">
+                <th class='region' scope="row">{{stat.structureName}} </th>
+                <th class='region' scope="row">{{stat.nVoxels}} </th>
+
+                <td>{{stat.volume_mm3.media | number: '1.1-2'}}</td>
+                <td>{{stat.volume_mm3.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a  {{stat.volume_mm3.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.volume_mm3.cantidadDesvio}}{{stat.volume_mm3.negativo}}'>{{stat.volume_mm3.patologico
+                      | number: '1.1-2'}}</td>
+
+                <td>{{stat.normMean.media | number: '1.1-2'}}</td>
+                <td>{{stat.normMean.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a  {{stat.normMean.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.normMean.cantidadDesvio}}{{stat.normMean.negativo}}'>{{stat.normMean.patologico
+                      | number: '1.1-2'}}</td>
+
+                <td>{{stat.normStdDev.media | number: '1.1-2'}}</td>
+                <td>{{stat.normStdDev.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a  {{stat.normStdDev.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.normStdDev.cantidadDesvio}}{{stat.normStdDev.negativo}}'>{{stat.normStdDev.patologico
+                      | number: '1.1-2'}}</td>
+
+                <td>{{stat.normMin.media | number: '1.1-2'}}</td>
+                <td>{{stat.normMin.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a  {{stat.normMin.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.normMin.cantidadDesvio}}{{stat.normMin.negativo}}'>{{stat.normMin.patologico
+                      | number: '1.1-2'}}</td>
+
+                <td>{{stat.normMax.media | number: '1.1-2'}}</td>
+                <td>{{stat.normMax.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a  {{stat.normMax.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.normMax.cantidadDesvio}}{{stat.normMax.negativo}}'>{{stat.normMax.patologico
+                      | number: '1.1-2'}}</td>
+
+                <td>{{stat.normRange.media | number: '1.1-2'}}</td>
+                <td>{{stat.normRange.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a  {{stat.normRange.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.normRange.cantidadDesvio}}{{stat.normRange.negativo}}'>{{stat.normRange.patologico
+                      | number: '1.1-2'}}</td>
+
+
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <div class='rounded border p-3 '>
+        <h6>
+          wmParcStat.stats
+        </h6>
+        <div class='rounded border p-3 '>
+          <table class="table resultados">
+            <thead class="thead-dark">
+              <tr>
+                <th>Structure Name</th>
+                <th>nVoxels</th>
+                <th colspan="3">volume_mm3</th>
+                <th colspan="3">normMean</th>
+                <th colspan="3">normStdDev</th>
+                <th colspan="3">normMin</th>
+                <th colspan="3">normMax</th>
+                <th colspan="3">normRange</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+                <td class='datos'>Media</td>
+                <td class='datos'>Desvío</td>
+                <td class='datos'>Paciente</td>
+
+
+              </tr>
+
+              <tr *ngFor="let stat of stats.wmParcStat">
+                <th class='region' scope="row">{{stat.structureName}} </th>
+                <th class='region' scope="row">{{stat.nVoxels}} </th>
+
+                <td>{{stat.volume_mm3.media | number: '1.1-2'}}</td>
+                <td>{{stat.volume_mm3.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a {{stat.volume_mm3.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.volume_mm3.cantidadDesvio}}{{stat.volume_mm3.negativo}}'>{{stat.volume_mm3.patologico
+                      | number: '1.1-2'}}</td>
+
+                <td>{{stat.normMean.media | number: '1.1-2'}}</td>
+                <td>{{stat.normMean.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a  {{stat.normMean.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.normMean.cantidadDesvio}}{{stat.normMean.negativo}}'>{{stat.normMean.patologico
+                      | number: '1.1-2'}}</td>
+
+                <td>{{stat.normStdDev.media | number: '1.1-2'}}</td>
+                <td>{{stat.normStdDev.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a  {{stat.normStdDev.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.normStdDev.cantidadDesvio}}{{stat.normStdDev.negativo}}'>{{stat.normStdDev.patologico
+                      | number: '1.1-2'}}</td>
+
+                <td>{{stat.normMin.media | number: '1.1-2'}}</td>
+                <td>{{stat.normMin.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a  {{stat.normMin.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.normMin.cantidadDesvio}}{{stat.normMin.negativo}}'>{{stat.normMin.patologico
+                      | number: '1.1-2'}}</td>
+
+                <td>{{stat.normMax.media | number: '1.1-2'}}</td>
+                <td>{{stat.normMax.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a  {{stat.normMax.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.normMax.cantidadDesvio}}{{stat.normMax.negativo}}'>{{stat.normMax.patologico
+                      | number: '1.1-2'}}</td>
+
+                <td>{{stat.normRange.media | number: '1.1-2'}}</td>
+                <td>{{stat.normRange.desvio | number: '1.1-2'}}</td>
+                <td title=" menor a  {{stat.normRange.cantidadDesvio + 1 }} desvío standard"
+                  class='desvio{{stat.normRange.cantidadDesvio}}{{stat.normRange.negativo}}'>{{stat.normRange.patologico
+                      | number: '1.1-2'}}</td>
+
+
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class='rounded border p-3 '>
+      <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
+    </div>
+  </div>

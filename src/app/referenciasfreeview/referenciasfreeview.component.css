@@ -1,0 +1,11 @@
+
+
+
+  .aParent {
+      width: 100%;
+  }
+  .aParent .positivonegativo {
+    float: left;
+    clear: none; 
+    width: 50%;
+}
