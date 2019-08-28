@@ -8,7 +8,6 @@ import { FreesurferStat } from './model/FreesurferStat';
 import { PacientesComparados } from './model/PacientesComparados';
 import { FreesurferComparedStats } from './model/FreesurferComparedStats';
 import { Study } from './Study';
-import { RequestOptions, ResponseContentType, Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -18,7 +17,7 @@ export class SerieService {
   
   private studyUrl = environment.apiUrl + '/series';  // URL to web api
 
-  constructor(private http: HttpClient, private http2: Http) { 
+  constructor(private http: HttpClient, private http2: HttpClient) { 
 
     
 
@@ -196,9 +195,12 @@ export class SerieService {
   }
 
   descargarComando(): Observable<Blob> {
+    /*
     let options = new RequestOptions({responseType: ResponseContentType.Blob });
     return this.http2.get(environment.apiUrl + '/download/freeviewcommand', options)
     .pipe(map(res => res.blob()))
+    */ 
+   return null;
 }
 
 compararGrupoVolumetricoLeft(idSerie: string) {

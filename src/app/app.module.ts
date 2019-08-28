@@ -38,7 +38,6 @@ import localeFr from '@angular/common/locales/es-AR';
 import { registerLocaleData } from '@angular/common';
 import { PacientescandidatosfaComponent } from './pacientescandidatosfa/pacientescandidatosfa.component';
 import { ResultadocomparacionfaComponent } from './resultadocomparacionfa/resultadocomparacionfa.component';
-import { HttpModule } from '@angular/http';
 import { ResultadocomparacionuscComponent } from './resultadocomparacionusc/resultadocomparacionusc.component';
 import { AparctableComponent } from './aparctable/aparctable.component';
 import { EpilepsiasComponent } from './epilepsias/epilepsias.component';
@@ -116,7 +115,6 @@ const appRoutes: Routes = [
     MatSortModule,
     MatTableModule,
     MatPaginatorModule,
-    HttpModule
     
     
   ],

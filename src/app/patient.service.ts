@@ -5,7 +5,6 @@ import { Patient } from './Patient';
 import { Observable, of } from 'rxjs';
 import {PatientR} from './model/PatientR';
 import {Porcentaje} from './model/Porcentaje';
-import { RequestOptions, ResponseContentType, Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -15,7 +14,7 @@ export class PatientService {
   
   private patientUrl = environment.apiUrl;  // URL to web api
 
-  constructor(private http: HttpClient, private http2: Http) { 
+  constructor(private http: HttpClient, private http2: HttpClient) { 
 
     
 
@@ -156,15 +155,20 @@ export class PatientService {
   
 
   descargarReporte(): Observable<Blob> {
-    let options = new RequestOptions({responseType: ResponseContentType.Blob });
+    return null;
+    /*
+    let options = new HttpHeaders({responseType:  'blob' as 'blob' });
     return this.http2.get(this.patientUrl + '/patient/generarreporte', options)
-    .pipe(map(res => res.blob()))
+    .pipe(map(res => res.blob()))*/
 }
 
 descargarReporteReducido(): Observable<Blob> {
-  let options = new RequestOptions({responseType: ResponseContentType.Blob });
+  /*
+  let options = new HttpHeaders({responseType:  'blob' as 'blob' });
   return this.http2.get(this.patientUrl + '/patient/generarreportereducido', options)
   .pipe(map(res => res.blob()))
+  */
+ return null;
 }
 
 

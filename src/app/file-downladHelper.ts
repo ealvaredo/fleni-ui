@@ -1,5 +1,5 @@
 import { saveAs } from 'file-saver/FileSaver';
-import { Response } from '@angular/http';
+import { HttpResponse } from '@angular/common/http';
 
 /**
  * Saves a file by opening file-save-as dialog in the browser
