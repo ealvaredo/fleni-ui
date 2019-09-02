@@ -71,7 +71,7 @@ export class SeriesComponent implements OnInit {
   }
   
   freeView(serie: string) : void {
-
+    console.log("ver freeview")
     this.serieService.freeView(serie).subscribe(data => this.descargarComando());
    // this.serieService.freeView(serie).subscribe();
   

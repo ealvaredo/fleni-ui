@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Serie } from './Serie';
 import { Observable, of } from 'rxjs';
 import { Patient } from './Patient';
@@ -194,15 +194,21 @@ export class SerieService {
     return this.http.get<void>(environment.apiUrl + '/importdatabase/dti', {params});
   }
 
+  descargarComando(): Observable<Blob>{	
+    const options = { responseType: 'blob' as 'json' }	
+		return this.http.get<Blob>(environment.apiUrl + '/download/freeviewcommand', options);
+   }
+
+/*
   descargarComando(): Observable<Blob> {
-    /*
+    
+
+
     let options = new RequestOptions({responseType: ResponseContentType.Blob });
     return this.http2.get(environment.apiUrl + '/download/freeviewcommand', options)
     .pipe(map(res => res.blob()))
-    */ 
-   return null;
 }
-
+*/
 compararGrupoVolumetricoLeft(idSerie: string) {
   return this.http.post<void>(this.studyUrl + '/compararGrupoVolumetricoLeft', idSerie);
 }
