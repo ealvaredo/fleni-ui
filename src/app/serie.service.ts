@@ -59,6 +59,16 @@ export class SerieService {
     return this.http.get<void>(this.studyUrl + '/mrview', {params});
 
   }
+  mrviewForSerie(idPaciente: string): Observable<void> {
+    console.log("serie");
+    const params = new HttpParams()
+    .set('idSerie', idPaciente)
+    return this.http.get<void>(this.studyUrl + '/mrviewserie', {params});
+
+  }
+
+
+  
 
   verificado(idPaciente: string, value: boolean): Observable<void> {
     const params = new HttpParams()

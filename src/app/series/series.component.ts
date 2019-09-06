@@ -102,9 +102,12 @@ export class SeriesComponent implements OnInit {
   }
   
 
-  verImagenes(serie: number) : void {
+  verImagenes(serie: string) : void {
+    console.log("serie");
+    
+    this.serieService.mrviewForSerie(serie).subscribe();
 
-    this.router.navigate(['/images', serie ]);
+    //this.router.navigate(['/images', serie ]);
   }
 
   volver() : void {
