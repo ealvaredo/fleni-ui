@@ -2,7 +2,8 @@
   <div class='rounded border p-3 '>
    
     <h5>
-      Resultados de la comparación de {{stats.pacientePatologico.name}} ( {{stats.pacientePatologico.age}} años) con {{stats.cantidadPacientesSanos}} pacientes sanos (edad promedio {{stats.ageAverage}} años). Fecha de generación: {{stats.date | date:'dd-MM-yyyy HH:mm' }}
+      Resultados de la comparación de {{stats.pacientePatologico.name}} ( {{stats.pacientePatologico.age}} {{stats.pacientePatologico.age != "MONTH" | iif : "Años : "Meses"}}
+      ) con {{stats.cantidadPacientesSanos}} pacientes sanos (edad promedio {{stats.ageAverage}} años). Fecha de generación: {{stats.date | date:'dd-MM-yyyy HH:mm' }}
      
     </h5>
     <div class='rounded border p-3 '>
