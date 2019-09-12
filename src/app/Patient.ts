@@ -18,4 +18,5 @@ export class Patient {
     patologico: boolean;
     resonadorId: number;
     fecha:  Date;
+    ageUnit: string;
   }

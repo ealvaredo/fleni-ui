@@ -32,7 +32,8 @@
             <th scope="row">{{patient.resonadorId}}</th>
             <td>{{patient.name}} </td>
             <td>{{patient.fecha | date:'dd-MM-yyyy HH:mm'}}</td>
-            <td>{{patient.age}}</td>
+            <td *ngIf="patient.ageUnit === 'MONTH'">{{patient.age}} Meses</td>
+            <td *ngIf="patient.ageUnit != 'MONTH'">{{patient.age}} Años</td>
               <td>{{patient.sex}}</td>
               <td>
                   <img  src="../assets/images/eye.png"(click)="verEstudios(patient.id)" title="Ver estudios">
