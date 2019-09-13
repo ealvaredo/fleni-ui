@@ -33,93 +33,93 @@ idSerie: string;
   freeviewLeftAparc2009() {
     this.serieService.freeviewLeftAparc2009(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
 
   }
 
   freeviewAparcPial() {
     this.serieService.freeviewAparcPial(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   freeviewRightAparc2009() {
     this.serieService.freeviewRightAparc2009(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
 
   }
 
   freeviewLeft() {
     this.serieService.freeViewCompared(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   freeviewRight() {
     this.serieService.freeviewRight(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   freeviewLeftDKT() : void {
     this.serieService.freeviewLeftDKT(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   freeviewRightDKT() {
     this.serieService.freeviewRightDKT(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   compararGrupoEspesorCortialLeft() {
     this.serieService.compararGrupoEspesorCortialLeft(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   compararGrupoVolumetricoLeft() {
     this.serieService.compararGrupoVolumetricoLeft(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   compararGrupoEspesorCortialRight() {
     this.serieService.compararGrupoEspesorCortialRight(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   compararGrupoVolumetricoRight() {
     this.serieService.compararGrupoVolumetricoRight(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   compararGrupoEspesorCortialLeftAparc2009() {
     this.serieService.compararGrupoEspesorCortialAparc2009(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   compararGrupoVolumetricoLeftAparc2009() {
     this.serieService.compararGrupoVolumetricoAparc2009(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   compararGrupoEspesorCortialRightAparc2009() {
     this.serieService.compararGrupoEspesorCortialAparc2009(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error]));
   }
 
   compararGrupoVolumetricoRightAparc2009() {
     this.serieService.compararGrupoVolumetricoAparc2009(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.message]));
+      this.router.navigate(['/error' , error.]));
   }
 
 
