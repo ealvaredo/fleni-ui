@@ -119,7 +119,7 @@ idSerie: string;
   compararGrupoVolumetricoRightAparc2009() {
     this.serieService.compararGrupoVolumetricoAparc2009(this.idSerie).subscribe(data => data, error =>
 
-      this.router.navigate(['/error' , error.]));
+      this.router.navigate(['/error' , error]));
   }
 
 
