@@ -115,6 +115,10 @@ export class SerieService {
     return this.http.post<void>(this.studyUrl + '/priorizar', serie);
   }
 
+  cancelar(serie: string) : Observable<void> {
+    return this.http.post<void>(this.studyUrl + '/cancelar', serie);
+  }
+
 
   freeView(serie: string) : Observable<void> {
     return this.http.post<void>(this.studyUrl + '/freeView', serie);

@@ -33,6 +33,7 @@
                         </div>
                         <div *ngIf="serie.freesurfer != null && serie.freesurfer.state == 'QUEUE'">
                                 <button type="button" class="btn btn-outline-primary" (click)="aumentarPrioridad(serie.id)" title='Aumenta la prioridad de este proceso'>Priorizar</button>
+                                <button type="button" class="btn btn-outline-primary" (click)="cancelar(serie.id)" title='Cancela el proceso'>Cancelar</button>
                                     <p>En cola</p>
                             </div>
 

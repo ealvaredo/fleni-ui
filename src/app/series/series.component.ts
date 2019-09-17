@@ -65,6 +65,10 @@ export class SeriesComponent implements OnInit {
     this.serieService.priorizar(serie).subscribe(data => this.verSeries(this.study));
   }
 
+  cancelar(serie: string) : void {
+    this.serieService.cancelar(serie).subscribe(data => this.verSeries(this.study));
+  }
+
 
   procesar(serie: string) : void {
     this.serieService.procesar(serie).subscribe(data => this.verSeries(this.study));
