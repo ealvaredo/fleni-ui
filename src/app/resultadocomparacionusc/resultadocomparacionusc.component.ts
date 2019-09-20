@@ -42,6 +42,11 @@ freeviewRight() {
   this.serieService.freeviewRight(this.idSerie).subscribe();
 }
 
+refrescar() { 
+
+  this.serieService.refrescarusc(this.idSerie).subscribe(data => this.stats = data);
+}
+
 
 
 }

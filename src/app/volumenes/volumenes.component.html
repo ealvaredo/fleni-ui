@@ -1,0 +1,211 @@
+<div class='rounded border p-3 '>
+    <h6>Volúmenes</h6>
+    <div class='rounded border p-3 '>
+      <table class="table resultados">
+        <thead class="thead-dark">
+          <tr>
+            <th>Volumen</th>
+            <th>Media</th>
+            <th>Desvío</th>
+            <th>Paciente</th>
+          </tr>
+        </thead>
+        <tr>
+          <td> brainSeg</td>
+          <td>{{volumenes.brainSeg.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.brainSeg.desvio| number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.brainSeg.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.brainSeg.cantidadDesvio}}{{volumenes.brainSeg.negativo}}'>
+            {{volumenes.brainSeg.patologico}}</td>
+        </tr>
+        <tr>
+          <td> brainSegNotVent</td>
+          <td>{{volumenes.brainSegNotVent.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.brainSegNotVent.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.brainSegNotVent.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.brainSegNotVent.cantidadDesvio}}{{volumenes.brainSegNotVent.negativo}}'>
+            {{volumenes.brainSegNotVent.patologico}}</td>
+        </tr>
+
+        <tr>
+          <td> brainSegNotVentSurf</td>
+          <td>{{volumenes.brainSegNotVentSurf.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.brainSegNotVentSurf.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.brainSegNotVentSurf.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.brainSegNotVentSurf.cantidadDesvio}}{{volumenes.brainSegNotVentSurf.negativo}}'>
+            {{volumenes.brainSegNotVentSurf.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> ventricleChoroidVol</td>
+          <td>{{volumenes.ventricleChoroidVol.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.ventricleChoroidVol.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.ventricleChoroidVol.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.ventricleChoroidVol.cantidadDesvio}}{{volumenes.ventricleChoroidVol.negativo}}'>
+            {{volumenes.ventricleChoroidVol.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> lhCortex</td>
+          <td>{{volumenes.lhCortex.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.lhCortex.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.lhCortex.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.lhCortex.cantidadDesvio}}{{volumenes.lhCortex.negativo}}'>
+            {{volumenes.lhCortex.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> rhCortex</td>
+          <td>{{volumenes.rhCortex.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.rhCortex.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.rhCortex.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.rhCortex.cantidadDesvio}}{{volumenes.rhCortex.negativo}}'>
+            {{volumenes.rhCortex.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> cortex</td>
+          <td>{{volumenes.cortex.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.cortex.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.cortex.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.cortex.cantidadDesvio}}{{volumenes.cortex.negativo}}'>
+            {{volumenes.cortex.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> lhCerebralWhiteMatter</td>
+          <td>{{volumenes.lhCerebralWhiteMatter.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.lhCerebralWhiteMatter.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.lhCerebralWhiteMatter.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.lhCerebralWhiteMatter.cantidadDesvio}}{{volumenes.lhCerebralWhiteMatter.negativo}}'>
+            {{volumenes.lhCerebralWhiteMatter.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> rhCerebralWhiteMatter</td>
+          <td>{{volumenes.rhCerebralWhiteMatter.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.rhCerebralWhiteMatter.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.rhCerebralWhiteMatter.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.rhCerebralWhiteMatter.cantidadDesvio}}{{volumenes.rhCerebralWhiteMatter.negativo}}'>
+            {{volumenes.rhCerebralWhiteMatter.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> cerebralWhiteMatter</td>
+          <td>{{volumenes.cerebralWhiteMatter.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.cerebralWhiteMatter.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.cerebralWhiteMatter.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.cerebralWhiteMatter.cantidadDesvio}}{{volumenes.cerebralWhiteMatter.negativo}}'>
+            {{volumenes.cerebralWhiteMatter.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> subCortGray</td>
+          <td>{{volumenes.subCortGray.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.subCortGray.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.subCortGray.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.subCortGray.cantidadDesvio}}{{volumenes.subCortGray.negativo}}'>
+            {{volumenes.subCortGray.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> totalGray</td>
+          <td>{{volumenes.totalGray.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.totalGray.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.totalGray.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.totalGray.cantidadDesvio}}{{volumenes.totalGray.negativo}}'>
+            {{volumenes.totalGray.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> supraTentorial</td>
+          <td>{{volumenes.supraTentorial.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.supraTentorial.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.supraTentorial.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.supraTentorial.cantidadDesvio}}{{volumenes.supraTentorial.negativo}}'>
+            {{volumenes.supraTentorial.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> supraTentorialNotVent</td>
+          <td>{{volumenes.supraTentorialNotVent.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.supraTentorialNotVent.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.supraTentorialNotVent.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.supraTentorialNotVent.cantidadDesvio}}{{volumenes.supraTentorialNotVent.negativo}}'>
+            {{volumenes.supraTentorialNotVent.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> supraTentorialNotVentVox</td>
+          <td>{{volumenes.supraTentorialNotVentVox.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.supraTentorialNotVentVox.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.supraTentorialNotVentVox.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.supraTentorialNotVentVox.cantidadDesvio}}{{volumenes.supraTentorialNotVentVox.negativo}}'>
+            {{volumenes.supraTentorialNotVentVox.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> mask</td>
+          <td>{{volumenes.mask.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.mask.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.mask.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.mask.cantidadDesvio}}{{volumenes.mask.negativo}}'>
+            {{volumenes.mask.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> brainSegVoltoeTIV</td>
+          <td>{{volumenes.brainSegVoltoeTIV.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.brainSegVoltoeTIV.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.brainSegVoltoeTIV.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.brainSegVoltoeTIV.cantidadDesvio}}{{volumenes.brainSegVoltoeTIV.negativo}}'>
+            {{volumenes.brainSegVoltoeTIV.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> maskVoltoeTIV</td>
+          <td>{{volumenes.maskVoltoeTIV.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.maskVoltoeTIV.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.maskVoltoeTIV.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.maskVoltoeTIV.cantidadDesvio}}{{volumenes.maskVoltoeTIV.negativo}}'>
+            {{volumenes.maskVoltoeTIV.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> lhSurfaceHoles</td>
+          <td>{{volumenes.lhSurfaceHoles.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.lhSurfaceHoles.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.lhSurfaceHoles.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.lhSurfaceHoles.cantidadDesvio}}{{volumenes.lhSurfaceHoles.negativo}}'>
+            {{volumenes.lhSurfaceHoles.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> rhSurfaceHoles</td>
+          <td>{{volumenes.rhSurfaceHoles.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.rhSurfaceHoles.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.rhSurfaceHoles.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.rhSurfaceHoles.cantidadDesvio}}{{volumenes.rhSurfaceHoles.negativo}}'>
+            {{volumenes.rhSurfaceHoles.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> surfaceHoles</td>
+          <td>{{volumenes.surfaceHoles.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.surfaceHoles.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.surfaceHoles.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.surfaceHoles.cantidadDesvio}}{{volumenes.surfaceHoles.negativo}}'>
+            {{volumenes.surfaceHoles.patologico | number: '1.1-2'}}</td>
+        </tr>
+
+        <tr>
+          <td> estimatedTotalIntraCranialVol</td>
+          <td>{{volumenes.estimatedTotalIntraCranialVol.media | number: '1.1-2'}}</td>
+          <td>{{volumenes.estimatedTotalIntraCranialVol.desvio | number: '1.1-2'}}</td>
+          <td title=" > {{volumenes.estimatedTotalIntraCranialVol.cantidadDesvio + 1 }} desvío standard"
+            class='desvio{{volumenes.estimatedTotalIntraCranialVol.cantidadDesvio}}{{volumenes.estimatedTotalIntraCranialVol.negativo}}'>
+            {{volumenes.estimatedTotalIntraCranialVol.patologico | number: '1.1-2'}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>

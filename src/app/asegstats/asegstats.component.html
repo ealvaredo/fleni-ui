@@ -1,0 +1,98 @@
+<div class='rounded border p-3 '>
+  <h6>
+    aseg.stats
+  </h6>
+  <div class='rounded border p-3 '>
+      <table class="table resultados">
+        <thead class="thead-dark">
+          <tr>
+            <th>Structure Name</th>
+            <th>nVoxels</th>
+            <th colspan="3">volume_mm3</th>
+            <th colspan="3">normMean</th>
+            <th colspan="3">normStdDev</th>
+            <th colspan="3">normMin</th>
+            <th colspan="3">normMax</th>
+            <th colspan="3">normRange</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+
+            <td class='datos'>Media</td>
+            <td class='datos'>Desvío</td>
+            <td class='datos'>Paciente</td>
+
+            <td class='datos'>Media</td>
+            <td class='datos'>Desvío</td>
+            <td class='datos'>Paciente</td>
+
+            <td class='datos'>Media</td>
+            <td class='datos'>Desvío</td>
+            <td class='datos'>Paciente</td>
+
+            <td class='datos'>Media</td>
+            <td class='datos'>Desvío</td>
+            <td class='datos'>Paciente</td>
+
+            <td class='datos'>Media</td>
+            <td class='datos'>Desvío</td>
+            <td class='datos'>Paciente</td>
+
+            <td class='datos'>Media</td>
+            <td class='datos'>Desvío</td>
+            <td class='datos'>Paciente</td>
+
+
+          </tr>
+
+          <tr *ngFor="let stat of aseg">
+            <th class='region' scope="row">{{stat.structureName}} </th>
+            <th class='region' scope="row">{{stat.nVoxels}} </th>
+
+            <td>{{stat.volume_mm3.media | number: '1.1-2'}}</td>
+            <td>{{stat.volume_mm3.desvio | number: '1.1-2'}}</td>
+            <td title=" menor a  {{stat.volume_mm3.cantidadDesvio + 1 }} desvío standard"
+              class='desvio{{stat.volume_mm3.cantidadDesvio}}{{stat.volume_mm3.negativo}}'>{{stat.volume_mm3.patologico
+                  | number: '1.1-2'}}</td>
+
+            <td>{{stat.normMean.media | number: '1.1-2'}}</td>
+            <td>{{stat.normMean.desvio | number: '1.1-2'}}</td>
+            <td title=" menor a  {{stat.normMean.cantidadDesvio + 1 }} desvío standard"
+              class='desvio{{stat.normMean.cantidadDesvio}}{{stat.normMean.negativo}}'>{{stat.normMean.patologico
+                  | number: '1.1-2'}}</td>
+
+            <td>{{stat.normStdDev.media | number: '1.1-2'}}</td>
+            <td>{{stat.normStdDev.desvio | number: '1.1-2'}}</td>
+            <td title=" menor a  {{stat.normStdDev.cantidadDesvio + 1 }} desvío standard"
+              class='desvio{{stat.normStdDev.cantidadDesvio}}{{stat.normStdDev.negativo}}'>{{stat.normStdDev.patologico
+                  | number: '1.1-2'}}</td>
+
+            <td>{{stat.normMin.media | number: '1.1-2'}}</td>
+            <td>{{stat.normMin.desvio | number: '1.1-2'}}</td>
+            <td title=" menor a  {{stat.normMin.cantidadDesvio + 1 }} desvío standard"
+              class='desvio{{stat.normMin.cantidadDesvio}}{{stat.normMin.negativo}}'>{{stat.normMin.patologico
+                  | number: '1.1-2'}}</td>
+
+            <td>{{stat.normMax.media | number: '1.1-2'}}</td>
+            <td>{{stat.normMax.desvio | number: '1.1-2'}}</td>
+            <td title=" menor a  {{stat.normMax.cantidadDesvio + 1 }} desvío standard"
+              class='desvio{{stat.normMax.cantidadDesvio}}{{stat.normMax.negativo}}'>{{stat.normMax.patologico
+                  | number: '1.1-2'}}</td>
+
+            <td>{{stat.normRange.media | number: '1.1-2'}}</td>
+            <td>{{stat.normRange.desvio | number: '1.1-2'}}</td>
+            <td title=" menor a  {{stat.normRange.cantidadDesvio + 1 }} desvío standard"
+              class='desvio{{stat.normRange.cantidadDesvio}}{{stat.normRange.negativo}}'>{{stat.normRange.patologico
+                  | number: '1.1-2'}}</td>
+
+
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+</div>

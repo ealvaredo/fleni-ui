@@ -27,7 +27,23 @@ export class SerieService {
     const params = new HttpParams()
     .set('idSerie', idPaciente)
     return this.http.get<FreesurferComparedStats>(this.studyUrl + '/comparar', {params});
+  }
 
+  /**
+   * Vuelve a realizar la comparación
+   * @param idPaciente 
+   */
+  refrescar(idPaciente: string): Observable<FreesurferComparedStats> {
+    const params = new HttpParams()
+    .set('idSerie', idPaciente)
+    return this.http.get<FreesurferComparedStats>(this.studyUrl + '/refrescar', {params});
+  
+  }
+
+  refrescarusc(idPaciente: string): Observable<FreesurferComparedStats> {
+    const params = new HttpParams()
+    .set('idSerie', idPaciente)
+    return this.http.get<FreesurferComparedStats>(this.studyUrl + '/refrescarusc', {params});
   }
 
   compararusc(idPaciente: string): Observable<FreesurferComparedStats> {

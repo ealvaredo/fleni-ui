@@ -122,6 +122,11 @@ idSerie: string;
       this.router.navigate(['/error' , error]));
   }
 
+  refrescar() { 
+    this.stats = new FreesurferComparedStats();
+    this.serieService.refrescar(this.idSerie).subscribe(data => this.stats = data);
+  }
+
 
   
 }
