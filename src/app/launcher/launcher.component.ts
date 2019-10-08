@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ResonadorService } from '../resonador.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-launcher',
@@ -9,9 +11,38 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LauncherComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private router: Router) { }
+  constructor(private route: ActivatedRoute,private router: Router, private http: HttpClient) { }
+
+ cantidadCognitivos: Number;
+ cantidadPacientes: Number;
+ cantidadPacientesResonador: Number;
+ cantidadEpilesias: Number;
+ cantidadTumores: Number;
 
   ngOnInit() {
+
+    this.http.get<Number>(environment.apiUrl + '/launcher/cognitivos').subscribe(
+      data => this.cantidadCognitivos = data
+      );
+
+      this.http.get<Number>(environment.apiUrl + '/launcher/pacientes').subscribe(
+        data => this.cantidadPacientes = data
+        );
+  
+
+      this.http.get<Number>(environment.apiUrl + '/launcher/pacientesresonador').subscribe(
+        data => this.cantidadPacientesResonador = data
+        );
+
+        this.http.get<Number>(environment.apiUrl + '/launcher/epilepsias').subscribe(
+          data => this.cantidadEpilesias = data
+          );
+
+          this.http.get<Number>(environment.apiUrl + '/launcher/tumores').subscribe(
+            data => this.cantidadTumores = data
+            );
+  
+
   }
 
 

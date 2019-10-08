@@ -126,6 +126,9 @@ export class SeriesComponent implements OnInit {
     this.router.navigate(['/resultadocomparacionusc', serie ]);
   }
 
+  compararUscEscala(serie: string) : void  {
+    this.router.navigate(['/resultadocomparacionusc', serie, true ]);
+  }
 
   compararFA(serie: string) : void  {
     this.router.navigate(['/pacientescandidatosfa', serie ]);

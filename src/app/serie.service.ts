@@ -46,9 +46,11 @@ export class SerieService {
     return this.http.get<FreesurferComparedStats>(this.studyUrl + '/refrescarusc', {params});
   }
 
-  compararusc(idPaciente: string): Observable<FreesurferComparedStats> {
+  compararusc(idPaciente: string, escala: Boolean): Observable<FreesurferComparedStats> {
+    console.log(escala);
+    console.log('escala',escala.toString());
     const params = new HttpParams()
-    .set('idSerie', idPaciente)
+    .set('idSerie', idPaciente).set('escala', escala.toString());
     return this.http.get<FreesurferComparedStats>(this.studyUrl + '/compararusc', {params});
 
   }

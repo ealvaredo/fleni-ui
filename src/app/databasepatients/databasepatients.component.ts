@@ -3,6 +3,7 @@ import { ImportdatabaseService } from '../importdatabase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Patient } from '../Patient';
 import { Database } from '../model/Database';
+import { SerieService } from '../serie.service';
 
 @Component({
   selector: 'app-databasepatients',
@@ -16,7 +17,7 @@ export class DatabasepatientsComponent implements OnInit {
  database: Database;
 
   constructor(private service: ImportdatabaseService,
-    private route: ActivatedRoute, private router: Router) { }
+    private route: ActivatedRoute, private router: Router, private serieService: SerieService) { }
 
   ngOnInit() {
 
@@ -41,6 +42,10 @@ export class DatabasepatientsComponent implements OnInit {
       d => console.log("se abrió"), 
       error => this.router.navigate(['/error']), 
       () => this.router.navigate(['/databases/database/patient/' + this.id]));
+  }
+
+  onFreeView(id: string) {
+    this.serieService.freeViewPatient(id).subscribe();
   }
 
  

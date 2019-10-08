@@ -19,8 +19,9 @@ export class ResultadocomparacionuscComponent implements OnInit {
   ngOnInit() {
  this.route.params.subscribe(params => {
       this.idSerie = params['idSerie'];
-
-      this.serieService.compararusc(params['idSerie']).subscribe(data => this.stats = data);
+      let escala = params['escala'];
+  console.log(escala);
+      this.serieService.compararusc(params['idSerie'], escala).subscribe(data => this.stats = data);
   });
  }
 

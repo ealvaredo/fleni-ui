@@ -63,6 +63,7 @@ const appRoutes: Routes = [
   {path: 'pacientesestudio', component: PacientesestudioComponent},
   {path: 'resultadocomparacion/:idSerie', component: ResultadocomparacionComponent}  ,
   {path: 'resultadocomparacionusc/:idSerie', component: ResultadocomparacionuscComponent}  ,
+  {path: 'resultadocomparacionusc/:idSerie/:escala', component: ResultadocomparacionuscComponent}  ,
   {path: 'resultadocomparacionfa/:idSerie', component: ResultadocomparacionfaComponent}  ,
   {path: 'pacientescandidatosfa/:idSerie', component: PacientescandidatosfaComponent}  ,
   {path: 'epilepsias', component: EpilepsiasComponent}  ,

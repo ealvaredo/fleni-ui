@@ -1,12 +1,18 @@
 <div class="card-deck">
 
-
-
         <div class="card border-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Cognitivos <span title='Cantidad de pacientes con series cognitivas'
-                                class="badge badge-primary">300</span></div>
+                <div class="card-header">Cognitivos
+
+                        <div *ngIf="!cantidadCognitivos" class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                        </div>
+
+                        <span *ngIf="cantidadCognitivos" title='Cantidad de pacientes con series cognitivos'
+                                class="badge badge-primary">{{cantidadCognitivos}}</span>
+
+                </div>
                 <div class="card-body text-primary">
-                        <h5 class="card-title">Primary card title</h5>
+                        <h5 class="card-title">Cognitivos</h5>
                         <p class="card-text">Listado de pacientes con series cognitivas. Estas series son descargadas
                                 diariamente de los resonadores.</p>
                         <button type="button" class="btn btn-outline-primary stretched-link" (click)="cognitivos()">Ver
@@ -15,27 +21,140 @@
         </div>
 
         <div class="card border-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Pacientes <span title='Cantidad de pacientes descargados'
-                                class="badge badge-primary">300</span></div>
+                <div class="card-header">Pacientes
+
+                        <div *ngIf="!cantidadPacientes" class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                        </div>
+                        <span *ngIf="cantidadPacientes" title='Cantidad de pacientes descargados'
+                                class="badge badge-primary">{{cantidadPacientes}}</span></div>
+
+
                 <div class="card-body text-primary">
-                        <h5 class="card-title">Primary card title</h5>
+                        <h5 class="card-title">Pacientes</h5>
                         <p class="card-text">Listado de pacientes.</p>
                         <button type="button" class="btn btn-outline-primary stretched-link"
                                 (click)="viewPatients()">Ver
                                 pacientes</button>
                 </div>
         </div>
+
         <div class="card border-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Pacientes en resonador<span title='Cantidad de pacientes en los resonadores'
-                                class="badge badge-primary">300</span></div>
+                <div class="card-header">Pacientes en resonador
+
+                        <div *ngIf="!cantidadPacientesResonador" class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                        </div>
+
+                        <span *ngIf="cantidadPacientesResonador" title='Cantidad de pacientes en los resonadores'
+                                class="badge badge-primary">{{cantidadPacientesResonador}}</span>
+
+
+                </div>
                 <div class="card-body text-primary">
-                        <h5 class="card-title">Primary card title</h5>
+                        <h5 class="card-title">Pacientes en resonador</h5>
                         <p class="card-text">Listado de pacientes en los resonadores.</p>
                         <button type="button" class="btn btn-outline-primary stretched-link"
                                 (click)="pacientesResonador()">Pacientes en
                                 resonador</button>
                 </div>
         </div>
+
+        <div class="card border-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Epilepsias
+
+                        <div *ngIf="!cantidadEpilesias" class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                        </div>
+
+                        <span *ngIf="cantidadEpilesias" title='Cantidad de pacientes con estudios de epilepsia'
+                                class="badge badge-primary">{{cantidadEpilesias}}</span></div>
+
+                <div class="card-body text-primary">
+                        <h5 class="card-title">Epilepsias</h5>
+                        <p class="card-text">Listado de pacientes con protocolos de epilepsia</p>
+                        <button type="button" class="btn btn-outline-primary stretched-link"
+                                (click)="epilepsias()">Epilepsias</button>
+                </div>
+        </div>
+</div>
+<div class="card-deck">
+
+        <div class="card border-primary mb-3" style="max-width: 18rem;">
+
+                <div class="card-header">Tumores
+
+                        <div *ngIf="!cantidadTumores" class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                        </div>
+
+                        <span *ngIf="cantidadTumores" title='Cantidad de pacientes con estudios de tumores'
+                                class="badge badge-primary">{{cantidadTumores}}</span>
+
+                </div>
+                <div class="card-body text-primary">
+                        <h5 class="card-title">Tumores</h5>
+                        <p class="card-text">Listado de pacientes con protocolos de tumores.</p>
+                        <button type="button" class="btn btn-outline-primary stretched-link"
+                                (click)="tumores()">Tumores</button>
+                </div>
+        </div>
+
+        <div class="card border-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Series procesadas<span
+                                title='Cantidad de pacientes con estudios procesados con freesurfer'
+                                class="badge badge-primary">?</span></div>
+                <div class="card-body text-primary">
+                        <h5 class="card-title">Series procesadas</h5>
+                        <p class="card-text">Listado de pacientes con series procesadas con freesurfer.</p>
+                        <button type="button" class="btn btn-outline-primary stretched-link"
+                                (click)="seriesProcesadas()">Series procesadas</button>
+                </div>
+        </div>
+
+        <div class="card border-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Series en cola<span
+                                title='Cantidad de pacientes con series esperando para ser procesadas por freesurfer'
+                                class="badge badge-primary">?</span></div>
+                <div class="card-body text-primary">
+                        <h5 class="card-title">Series en cola</h5>
+                        <p class="card-text">Listado de pacientes con series esperando para ser procesadas por
+                                freesurfer.</p>
+                        <button type="button" class="btn btn-outline-primary stretched-link"
+                                (click)="seriesencola()">Series en cola</button>
+                </div>
+        </div>
+
+        <div class="card border-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Series procesando<span
+                                title='Cantidad de pacientes con series en proceso de freesurfer'
+                                class="badge badge-primary">?</span></div>
+                <div class="card-body text-primary">
+                        <h5 class="card-title">Series proceando</h5>
+                        <p class="card-text">Listado pacientes con series que se están procesando en el freesurfer.</p>
+                        <button type="button" class="btn btn-outline-primary stretched-link"
+                                (click)="seriesprocesando()">Series procesando</button>
+                </div>
+        </div>
+</div>
+<div class="card-deck">
+
+
+        <div class="card border-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Pacientes Patológicos<span title='Cantidad de pacientes con interés de estudio'
+                                class="badge badge-primary">?</span></div>
+                <div class="card-body text-primary">
+                        <h5 class="card-title">Pacientes Patológicos</h5>
+                        <p class="card-text">Listado de pacientes con interés de estudios.</p>
+                        <button type="button" class="btn btn-outline-primary stretched-link"
+                                (click)="pacientesPatologicos()">Pacientes Patológicos</button>
+                </div>
+        </div>
+
+
+
+
+
 
 
 </div>
@@ -60,37 +179,6 @@
 </div>
 
 
-<div class='rounded border p-3 '>
-
-        <button type="button" class="btn btn-outline-primary" (click)="pacientesPatologicos()">Pacientes
-                patológicos</button>
-</div>
-
-<div class='rounded border p-3 '>
-
-        <button type="button" class="btn btn-outline-primary" (click)="epilepsias()">Epilepsias</button>
-</div>
-
-<div class='rounded border p-3 '>
-
-        <button type="button" class="btn btn-outline-primary" (click)="tumores()">Tumores</button>
-</div>
-
-<div class='rounded border p-3 '>
-
-        <button type="button" class="btn btn-outline-primary" (click)="seriesencola()">Series en cola</button>
-</div>
-
-<div class='rounded border p-3 '>
-
-        <button type="button" class="btn btn-outline-primary" (click)="seriesprocesando()">Series
-                procesando</button>
-</div>
-<div class='rounded border p-3 '>
-
-        <button type="button" class="btn btn-outline-primary" (click)="seriesProcesadas()">Series
-                procesadas</button>
-</div>
 
 
 

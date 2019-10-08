@@ -61,7 +61,7 @@
               <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'QUEUE'">En cola</div>
               <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'PROCESSING'">Procesando</div>
               <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'PROCESSED'">
-                <img  src="../assets/images/tbss.png" (click)="onTrackVis(patient.id)" title="Abrir en TrackVis">
+                <img  src="../assets/images/tbss.png" (click)="onFreeView(patient.id)" title="Abrir en Freeview">
      
               </div>   
 

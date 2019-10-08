@@ -18,8 +18,10 @@
                     <th>Ver imágenes</th>
                     <th>Comparar</th>
                     <th title='Realiza una comparación usando los datos de la base de datos Brain Growth Charts'>Comparar
-                        Usc</th>
-                    <th>Comparar FA</th>
+                        Pediátricos</th>
+                        <th title='Realiza una comparación usando los datos de la base de datos Brain Growth Charts aplicando un factor de escala a los datos'>Comparar
+                            Pediátricos (en escala)</th>
+                        <th>Comparar FA</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,6 +57,7 @@
                     <td><img [src]="descagarImg" (click)="verImagenes(serie.id)"></td>
                     <td><img src="../assets/images/descargar.png" (click)="comparar(serie.id)" title="Comparar con pacientes de la base de datos"></td>
                     <td><img src="../assets/images/descargar.png" (click)="compararUsc(serie.id)" title="Comparar con pacientes de la base de datos Brain Growth Charts"></td>
+                    <td><img src="../assets/images/descargar.png" (click)="compararUscEscala(serie.id)" title="Comparar con pacientes de la base de datos Brain Growth Charts usando factor de escala"></td>
                     <td><button type="button" class="btn btn-outline-primary" (click)="compararFA(serie.id)" title="Busca dentro de las bases de datos de pacientes sanos, pacientes para realizar la comparación de FA.">Comparar
                             FA</button> </td>
                 </tr>
