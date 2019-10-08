@@ -101,9 +101,15 @@
         </div>
 
         <div class="card border-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Series procesadas<span
+                <div class="card-header">Series procesadas
+
+                        <div *ngIf="!cantidadProcesados" class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                        </div>
+
+                        <span *ngIf="cantidadProcesados"
                                 title='Cantidad de pacientes con estudios procesados con freesurfer'
-                                class="badge badge-primary">?</span></div>
+                                class="badge badge-primary">{{cantidadProcesados}}</span></div>
                 <div class="card-body text-primary">
                         <h5 class="card-title">Series procesadas</h5>
                         <p class="card-text">Listado de pacientes con series procesadas con freesurfer.</p>
@@ -113,9 +119,16 @@
         </div>
 
         <div class="card border-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Series en cola<span
+                <div class="card-header">Series en cola
+
+                        <div *ngIf="cantidadencola == null " class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                        </div>
+
+
+                        <span *ngIf="cantidadencola != null"
                                 title='Cantidad de pacientes con series esperando para ser procesadas por freesurfer'
-                                class="badge badge-primary">?</span></div>
+                                class="badge badge-primary">{{cantidadencola}}</span></div>
                 <div class="card-body text-primary">
                         <h5 class="card-title">Series en cola</h5>
                         <p class="card-text">Listado de pacientes con series esperando para ser procesadas por
@@ -126,9 +139,15 @@
         </div>
 
         <div class="card border-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Series procesando<span
+                <div class="card-header">Series procesando
+
+                        <div *ngIf="cantidadProcesando == null" class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                        </div>
+
+                        <span *ngIf="cantidadProcesando != null"
                                 title='Cantidad de pacientes con series en proceso de freesurfer'
-                                class="badge badge-primary">?</span></div>
+                                class="badge badge-primary">{{cantidadProcesando}}</span></div>
                 <div class="card-body text-primary">
                         <h5 class="card-title">Series proceando</h5>
                         <p class="card-text">Listado pacientes con series que se están procesando en el freesurfer.</p>
