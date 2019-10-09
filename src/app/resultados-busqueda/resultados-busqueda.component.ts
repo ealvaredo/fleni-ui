@@ -150,7 +150,7 @@ export class ResultadosBusquedaComponent implements OnInit {
 
 */
   volver(): void {
-    this.router.navigate(['/buscarpacientesresonador']);
+    this.router.navigate(['/launcher']);
   }
 
   /*

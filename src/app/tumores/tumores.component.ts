@@ -27,5 +27,9 @@ export class TumoresComponent implements OnInit {
     this.pacienteService.searchTumores(texto).subscribe(data => this.patients = data);
   }
 
+  volver() {
+    this.router.navigate(['/launcher']);
+  }
+
 
 }

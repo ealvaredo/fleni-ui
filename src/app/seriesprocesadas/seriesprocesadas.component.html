@@ -1,4 +1,6 @@
 <app-pacientes [patients]="patients"
 (onEstudios)="verEstudios($event)"
 (onSearchChange)="buscar($event)"
-[titulo]="'Pacientes con series procesadas por freesurfer'"></app-pacientes>
+[titulo]="'Pacientes con series procesadas por freesurfer'"
+(onBack)="volver()"
+></app-pacientes>

@@ -29,5 +29,10 @@ export class SeriesprocesandoComponent implements OnInit {
     this.pacienteService.searchSeriesEnProceso(texto).subscribe(data => this.patients = data);
   }
 
+  
+  volver() {
+    this.router.navigate(['/launcher']);
+  }
+
 
 }

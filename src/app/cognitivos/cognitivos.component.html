@@ -1,4 +1,5 @@
 <app-pacientes [patients]="patients"
 (onEstudios)="verEstudios($event)"
 (onSearchChange)="buscar($event)"
-[titulo]="'Pacientes cognitivos'"></app-pacientes>
+[titulo]="'Pacientes cognitivos'"
+(onBack)="volver()"></app-pacientes>

@@ -27,5 +27,9 @@ export class SeriesencolaComponent implements OnInit {
     this.pacienteService.searchSeriesEnCola(texto).subscribe(data => this.patients = data);
   }
 
+  volver() {
+    this.router.navigate(['/launcher']);
+  }
+
 
 }

@@ -1,4 +1,6 @@
 <app-pacientes [patients]="patients"
 (onEstudios)="verEstudios($event)"
 (onSearchChange)="buscar($event)"
-[titulo]="'Pacientes con protocolo de tumor'"></app-pacientes>
+[titulo]="'Pacientes con protocolo de tumor'"
+(onBack)="volver()"
+></app-pacientes>

@@ -27,4 +27,8 @@ export class CognitivosComponent implements OnInit {
     this.pacienteService.searchCognitivos(texto).subscribe(data => this.patients = data);
   }
 
+  volver() {
+    this.router.navigate(['/launcher']);
+  }
+
 }

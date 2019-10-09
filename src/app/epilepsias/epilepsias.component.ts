@@ -28,4 +28,8 @@ export class EpilepsiasComponent implements OnInit {
     this.pacienteService.searchEpilepticos(texto).subscribe(data => this.patients = data);
   }
 
+  volver() {
+    this.router.navigate(['/launcher']);
+  }
+
 }

@@ -13,6 +13,7 @@ export class PacientesComponent implements OnInit {
   @Input() titulo: string;
   @Output() onEstudios: EventEmitter<string> = new EventEmitter<string>();
   @Output() onSearchChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onBack: EventEmitter<void> = new EventEmitter<void>();
   
 
   busqueda: string;
@@ -58,6 +59,10 @@ export class PacientesComponent implements OnInit {
 
   nocognitivo(idPaciente: string) {
     this.patientService.nocognitivo(idPaciente).subscribe(data => this.buscar(this.busqueda));
+  }
+
+  volver() {
+    this.onBack.emit();
   }
 
 

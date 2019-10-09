@@ -1,59 +1,14 @@
 <app-pacientes [patients]="patients"
 (onEstudios)="verEstudios($event)"
 (onSearchChange)="buscar($event)"
-[titulo]="'Buscar paciente'"></app-pacientes>
-
-<!--
-<div class="container pt-3">
-
-        <h1>Buscar paciente</h1>
-        <div class='rounded border p-3'>
-            <div class='form-group'>
-              <label>Ingrear nombre del paciente</label>
-              <input type="text" class="form-control" (keyup)="onSearchChange($event.target.value)">
-            </div>
-        </div>
-      
+[titulo]="'Buscar paciente'" 
+(onBack)="volver()"></app-pacientes>
 
     <div class='rounded border p-3 '>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Nombre del paciente</th>
-                    <th>Edad</th>
-                    <th>Sexo</th>
-                    <th>Ver estudios</th>
-                    <th>Eliminar</th>
-                    <th>Patologico</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let patient of patients">
-                    <th scope="row">{{patient.name}} </th>
-                    <td>{{patient.age}}</td>
-                    <td>{{patient.sex}}</td>
-                    <td><img [src]="descagarImg" (click)="verEstudios(patient.id)" title="Ver estudios"></td>
-                    <td><img [src]="trashImagen" (click)="deletePatient(patient.id)" title="Eliminar paciente"></td>
-                    <td> 
-                            
-                         <button *ngIf="patient.patologico == null || !patient.patologico" type="button" class="btn btn-outline-primary" (click)="patologico(patient.id)" title='Lo agrega a la lista de pacientes patológicos para ser estudiados.'>Patológico</button>
-                         <button *ngIf="patient.patologico !=null && patient.patologico"  type="button" class="btn btn-outline-primary" (click)="sano(patient.id)" title='Lo saca de  lista de pacientes patológicos para ser estudiados.'>Sano</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    -->
-    <div class='rounded border p-3 '>
-            <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
             <button *ngIf="patologicos" type="button" class="btn btn-outline-primary" (click)="generarReporte()">Descargar comparación</button>
             <button *ngIf="patologicos" type="button" class="btn btn-outline-primary" (click)="generarReporteReducido()">Descargar comparación reducida</button>
             <p *ngIf="patologicos &&  porcentajeDescaga != null">{{porcentajeDescaga}}%</p>            
         </div>
-  
-        <!--</div>
--->
 
 
 <router-outlet></router-outlet>

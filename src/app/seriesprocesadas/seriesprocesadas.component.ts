@@ -15,7 +15,7 @@ export class SeriesprocesadasComponent implements OnInit {
   constructor(private pacienteService: PatientService, private router: Router) { }
 
   ngOnInit() {
-        this.pacienteService.seriesProcesadas().subscribe(data => this.patients = data);
+    this.pacienteService.seriesProcesadas().subscribe(data => this.patients = data);
   }
 
   verEstudios(paciente) {
@@ -25,6 +25,10 @@ export class SeriesprocesadasComponent implements OnInit {
   buscar(texto) {
     console.log(texto);
     this.pacienteService.searchSeriesProcesadas(texto).subscribe(data => this.patients = data);
+  }
+
+  volver() {
+    this.router.navigate(['/launcher']);
   }
 
 

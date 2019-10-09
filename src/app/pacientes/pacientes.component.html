@@ -1,67 +1,77 @@
-<div class="container pt-3">
+<div class="container">
 
   <h1>{{titulo}}</h1>
-  <div class='rounded border p-3'>
-    <h3>Buscar paciente</h3>
-    <div class='form-group'>
-        <label>Ingresar nombre del paciente</label>
-        <input type="text" class="form-control" (keyup)="buscar($event.target.value)">
-      </div>
+</div>
+<div class='container' >
+  <div class='form-group'>
+    <label>Ingresar nombre del paciente</label>
+    <input type="text" class="form-control" (keyup)="buscar($event.target.value)">
   </div>
+</div>
 
 
-<div class='rounded border p-3 '>
-  <table class="table">
-      <thead class="thead-dark">
-          <tr>
-            <th>ID</th>
-            <th>Nombre del paciente</th>
-            <th>Fecha</th>
-            <th>Edad</th>
-            <th>Sexo</th>
-            <th>Ver estudios</th>
-            <th>Eliminar</th>
-            <th>Patologico</th>
-            <th>Priorizar</th>
-            <th title="COGNITIVO: Se trata de una acción para indicar que el paciente es cognitivo. Esto permite luego que el paciente se visualice dentro de la lista de pacientes cognitivos. NO COGNITIVO: Se trata de una acción que permite indicar que el paciente no es un paciente congnitivo. Dejará de visualizarce dentro de la lista de pacientes cognitivos.">Cognitivos</th>
+<div class='container'>
+  <table class="table table-hover">
+    <caption>Listado de pacientes</caption>
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre del paciente</th>
+        <th>Fecha</th>
+        <th>Edad</th>
+        <th>Sexo</th>
+        <th>Ver estudios</th>
+        <th>Eliminar</th>
+        <th>Patologico</th>
+        <th>Priorizar</th>
+        <th
+          title="COGNITIVO: Se trata de una acción para indicar que el paciente es cognitivo. Esto permite luego que el paciente se visualice dentro de la lista de pacientes cognitivos. NO COGNITIVO: Se trata de una acción que permite indicar que el paciente no es un paciente congnitivo. Dejará de visualizarce dentro de la lista de pacientes cognitivos.">
+          Cognitivos</th>
 
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let patient of patients">
-            <th scope="row">{{patient.resonadorId}}</th>
-            <td>{{patient.name}} </td>
-            <td>{{patient.fecha | date:'dd-MM-yyyy HH:mm'}}</td>
-            <td *ngIf="patient.ageUnit === 'MONTH'">{{patient.age}} Meses</td>
-            <td *ngIf="patient.ageUnit != 'MONTH'">{{patient.age}} Años</td>
-              <td>{{patient.sex}}</td>
-              <td>
-                  <img  src="../assets/images/eye.png"(click)="verEstudios(patient.id)" title="Ver estudios">
-              </td>
-              <td><img src="../assets/images/trash.png" (click)="deletePatient(patient.id)" title="Eliminar paciente"></td>
-              <td> 
-                      
-                   <button *ngIf="patient.patologico == null || !patient.patologico" type="button" class="accion btn btn-outline-primary" (click)="patologico(patient.id)" title='Lo agrega a la lista de pacientes patológicos para ser estudiados.'>Patológico</button>
-                   <button *ngIf="patient.patologico !=null && patient.patologico"  type="button" class="accion btn btn-outline-primary" (click)="sano(patient.id)" title='Lo saca de  lista de pacientes patológicos para ser estudiados.'>Sano</button>
-              </td>
-              <td>
-                    <button type="button" class="btn btn-outline-primary accion" (click)="priorizar(patient.id)" title='Prioriza todos los procesos encolados para este paciente.'>Priorizar</button>
-              </td> 
-              <td>
-                  <button *ngIf="patient.cognitivo == null || !patient.cognitivo" type="button" class="accion btn btn-outline-primary" (click)="cognitivo(patient.id)" title='Indica que se trata de un paciente cognitivo.'>Cognitivo</button>
-                  <button *ngIf="patient.cognitivo != null && patient.cognitivo"  type="button" class="accion btn btn-outline-primary" (click)="nocognitivo(patient.id)" title='indica que el paciente es no cognitivo.'>No cognitivo</button>
-            </td> 
-        </tr>
-      </tbody>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patients">
+        <th scope="row">{{patient.resonadorId}}</th>
+        <td>{{patient.name}} </td>
+        <td>{{patient.fecha | date:'dd-MM-yyyy HH:mm'}}</td>
+        <td *ngIf="patient.ageUnit === 'MONTH'">{{patient.age}} Meses</td>
+        <td *ngIf="patient.ageUnit != 'MONTH'">{{patient.age}} Años</td>
+        <td>{{patient.sex}}</td>
+        <td>
+          <img src="../assets/images/eye.png" (click)="verEstudios(patient.id)" title="Ver estudios">
+        </td>
+        <td><img src="../assets/images/trash.png" (click)="deletePatient(patient.id)" title="Eliminar paciente"></td>
+        <td>
+
+          <button *ngIf="patient.patologico == null || !patient.patologico" type="button"
+            class="accion btn btn-outline-primary" (click)="patologico(patient.id)"
+            title='Lo agrega a la lista de pacientes patológicos para ser estudiados.'>Patológico</button>
+          <button *ngIf="patient.patologico !=null && patient.patologico" type="button"
+            class="accion btn btn-outline-primary" (click)="sano(patient.id)"
+            title='Lo saca de  lista de pacientes patológicos para ser estudiados.'>Sano</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-primary accion" (click)="priorizar(patient.id)"
+            title='Prioriza todos los procesos encolados para este paciente.'>Priorizar</button>
+        </td>
+        <td>
+          <button *ngIf="patient.cognitivo == null || !patient.cognitivo" type="button"
+            class="accion btn btn-outline-primary" (click)="cognitivo(patient.id)"
+            title='Indica que se trata de un paciente cognitivo.'>Cognitivo</button>
+          <button *ngIf="patient.cognitivo != null && patient.cognitivo" type="button"
+            class="accion btn btn-outline-primary" (click)="nocognitivo(patient.id)"
+            title='indica que el paciente es no cognitivo.'>No cognitivo</button>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>
-<div class='rounded border p-3 '>
-      <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
-      <button *ngIf="patologicos" type="button" class="btn btn-outline-primary" (click)="generarReporte()">Descargar comparación</button>
-      <button *ngIf="patologicos" type="button" class="btn btn-outline-primary" (click)="generarReporteReducido()">Descargar comparación reducida</button>
-      <p *ngIf="patologicos &&  porcentajeDescaga != null">{{porcentajeDescaga}}%</p>            
-  </div>
-
+<div class='container'>
+  <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
+  <button *ngIf="patologicos" type="button" class="btn btn-outline-primary" (click)="generarReporte()">Descargar
+    comparación</button>
+  <button *ngIf="patologicos" type="button" class="btn btn-outline-primary" (click)="generarReporteReducido()">Descargar
+    comparación reducida</button>
+  <p *ngIf="patologicos &&  porcentajeDescaga != null">{{porcentajeDescaga}}%</p>
 </div>
-
-
