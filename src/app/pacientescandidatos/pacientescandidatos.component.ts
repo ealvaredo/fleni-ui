@@ -13,6 +13,8 @@ export class PacientescandidatosComponent implements OnInit {
  idSerie: string;
  pacientes: Patient[];
  paciente: Patient;
+ escala: Boolean;
+
  
 
   constructor( private route: ActivatedRoute,
@@ -20,9 +22,12 @@ export class PacientescandidatosComponent implements OnInit {
 
   ngOnInit() {
     this.paciente = new Patient();
-
+    this.escala = false;
     this.route.params.subscribe(params => {
       this.idSerie = params['serie'];
+      if (params['escala'] != null) {
+        this.escala = params['escala'];
+      }
       this.buscarMatches();
   });
   }
@@ -47,7 +52,7 @@ export class PacientescandidatosComponent implements OnInit {
 
   comparar() {
 
-    this.router.navigate(['/resultadocomparacion', this.idSerie]);
+    this.router.navigate(['/resultadocomparacion', this.idSerie, this.escala]);
 
   }
 

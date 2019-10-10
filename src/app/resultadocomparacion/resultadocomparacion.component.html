@@ -1,5 +1,4 @@
 <div class="container pt-3">
-  <div class='rounded border p-3 '>
     <h5>
       Resultados de la comparación de {{stats.pacientePatologico.name}} ( {{stats.pacientePatologico.age}} años) con {{stats.cantidadPacientesSanos}} pacientes sanos (edad promedio {{stats.ageAverage}} años). Fecha de generación: {{stats.date | date:'dd-MM-yyyy HH:mm' }}
     </h5>
@@ -10,17 +9,21 @@
       <!-- Comparación de volúmenes -->
       <app-volumenes [volumenes]="stats.volumenes" ></app-volumenes>
 
-
-      <div class='rounded border p-3 '>
+    </div>
+     
+    <div class='rounded border p-3 '>
         <app-aparctable [stats]="stats.left" [titulo]="'Left'"></app-aparctable>
         <button type="button" class="btn btn-outline-primary" (click)="freeviewLeft()">Ver en freeview</button>
         <button type="button" class="btn btn-outline-primary" (click)="compararGrupoEspesorCortialLeft()">Comparar grupo
           espesor cortical</button>
         <button type="button" class="btn btn-outline-primary" (click)="compararGrupoVolumetricoLeft()">Comparar grupo
           volumétrico</button>
-      </div>
-      <app-referenciasfreeview [annotations]="stats.annotations"></app-referenciasfreeview>
+    </div>
 
+    <div class='rounded border p-3 '>
+
+      <app-referenciasfreeview [annotations]="stats.annotations"></app-referenciasfreeview>
+    </div> 
 
       <div class='rounded border p-3 '>
         <app-aparctable [stats]="stats.right" [titulo]="'Right'"></app-aparctable>
@@ -77,8 +80,7 @@
         <h6>
           wmParcStat.stats
         </h6>
-        <div class='rounded border p-3 '>
-          <table class="table resultados">
+          <table class="table resultados  table-hover">
             <thead class="thead-dark">
               <tr>
                 <th>Structure Name</th>
@@ -169,17 +171,6 @@
             </tbody>
           </table>
         </div>
-
-      </div>
-
-    </div>
-
-
-
-
-
-
-
 
     <div class='rounded border p-3 '>
       <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>

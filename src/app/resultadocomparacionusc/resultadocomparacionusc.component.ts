@@ -12,16 +12,19 @@ export class ResultadocomparacionuscComponent implements OnInit {
 
   stats: FreesurferComparedStats; 
   idSerie: string;
+  escala: Boolean = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router, private serieService: SerieService) { }
 
   ngOnInit() {
+    this.escala = false;
  this.route.params.subscribe(params => {
       this.idSerie = params['idSerie'];
-      let escala = params['escala'];
-  console.log(escala);
-      this.serieService.compararusc(params['idSerie'], escala).subscribe(data => this.stats = data);
+      if (params['escala'] != null) {
+        this.escala = params['escala'];
+      }
+      this.serieService.compararusc(params['idSerie'], this.escala).subscribe(data => this.stats = data);
   });
  }
 
@@ -45,7 +48,7 @@ freeviewRight() {
 
 refrescar() { 
 
-  this.serieService.refrescarusc(this.idSerie).subscribe(data => this.stats = data);
+  this.serieService.refrescarusc(this.idSerie, this.escala).subscribe(data => this.stats = data);
 }
 
 

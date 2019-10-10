@@ -1,4 +1,4 @@
-<div class='rounded border p-3'>
+<div class='container'>
   <h5>Referencias de colores para el freeview</h5>
   <div *ngFor="let annotation of annotations">
     <div *ngIf="annotation.labels == 'APARC' && annotation.hemisferio == 'lh' && annotation.surface == 'thickness'"
@@ -7,11 +7,13 @@
         <h6>Desvíos negativos</h6>
         <div class="aParent">
           <div class="positivonegativo">
-            <app-desvios [negativo]="true" [desvioMax]="1" [desvioMin]="0" [title]="'Menores a 1'" [colores]='annotation.colores'>
+            <app-desvios [negativo]="true" [desvioMax]="1" [desvioMin]="0" [title]="'Menores a 1'"
+              [colores]='annotation.colores'>
             </app-desvios>
           </div>
           <div class="positivonegativo">
-            <app-desvios [negativo]="true" [desvioMax]="2" [desvioMin]="1" [title]="'Menores a 2'" [colores]='annotation.colores'>
+            <app-desvios [negativo]="true" [desvioMax]="2" [desvioMin]="1" [title]="'Menores a 2'"
+              [colores]='annotation.colores'>
             </app-desvios>
           </div>
         </div>
@@ -20,14 +22,18 @@
         <h6>Desvíos positivos</h6>
         <div class="aParent">
           <div class="positivonegativo">
-            <app-desvios [negativo]="false" [desvioMax]="1" [desvioMin]="0" [title]="'Menores a 1'" [colores]='annotation.colores'>
+            <app-desvios [negativo]="false" [desvioMax]="1" [desvioMin]="0" [title]="'Menores a 1'"
+              [colores]='annotation.colores'>
             </app-desvios>
           </div>
           <div class="positivonegativo">
-              <app-desvios [negativo]="false" [desvioMax]="2" [desvioMin]="1" [title]="'Menores a 2'" [colores]='annotation.colores'>
-              </app-desvios>
-            </div>
-  
+            <app-desvios [negativo]="false" [desvioMax]="2" [desvioMin]="1" [title]="'Menores a 2'"
+              [colores]='annotation.colores'>
+            </app-desvios>
+          </div>
+
         </div>
       </div>
     </div>
+  </div>
+</div>

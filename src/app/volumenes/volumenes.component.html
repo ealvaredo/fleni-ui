@@ -1,7 +1,6 @@
-<div class='rounded border p-3 '>
+<div class='container'>
     <h6>Volúmenes</h6>
-    <div class='rounded border p-3 '>
-      <table class="table resultados">
+      <table class="table resultados table-hover">
         <thead class="thead-dark">
           <tr>
             <th>Volumen</th>
@@ -10,6 +9,7 @@
             <th>Paciente</th>
           </tr>
         </thead>
+        <tbody>
         <tr>
           <td> brainSeg</td>
           <td>{{volumenes.brainSeg.media | number: '1.1-2'}}</td>
@@ -206,6 +206,6 @@
             class='desvio{{volumenes.estimatedTotalIntraCranialVol.cantidadDesvio}}{{volumenes.estimatedTotalIntraCranialVol.negativo}}'>
             {{volumenes.estimatedTotalIntraCranialVol.patologico | number: '1.1-2'}}</td>
         </tr>
+      </tbody>
       </table>
     </div>
-  </div>

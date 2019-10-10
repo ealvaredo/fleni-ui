@@ -17,13 +17,18 @@ export class ResultadocomparacionComponent implements OnInit {
 
 stats: FreesurferComparedStats; 
 idSerie: string;
+escala: Boolean = false;
 
   ngOnInit() {
 
     this.route.params.subscribe(params => {
       this.idSerie = params['idSerie'];
+      
+      if (null != params['escala']) {
+        this.escala = params['escala'];
+      }
 
-      this.serieService.comparar(params['idSerie']).subscribe(data => this.stats = data);
+      this.serieService.comparar(params['idSerie'], this.escala).subscribe(data => this.stats = data);
 
   });
 
@@ -123,8 +128,9 @@ idSerie: string;
   }
 
   refrescar() { 
+    console.log(this.escala);
     this.stats = new FreesurferComparedStats();
-    this.serieService.refrescar(this.idSerie).subscribe(data => this.stats = data);
+    this.serieService.refrescar(this.idSerie, this.escala).subscribe(data => this.stats = data);
   }
 
 

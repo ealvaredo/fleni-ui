@@ -23,9 +23,9 @@ export class SerieService {
 
   }
 
-  comparar(idPaciente: string): Observable<FreesurferComparedStats> {
+  comparar(idPaciente: string, escala: Boolean): Observable<FreesurferComparedStats> {
     const params = new HttpParams()
-    .set('idSerie', idPaciente)
+    .set('idSerie', idPaciente).set('escala', escala.toString());
     return this.http.get<FreesurferComparedStats>(this.studyUrl + '/comparar', {params});
   }
 
@@ -33,16 +33,16 @@ export class SerieService {
    * Vuelve a realizar la comparación
    * @param idPaciente 
    */
-  refrescar(idPaciente: string): Observable<FreesurferComparedStats> {
+  refrescar(idPaciente: string, escala: Boolean): Observable<FreesurferComparedStats> {
     const params = new HttpParams()
-    .set('idSerie', idPaciente)
+    .set('idSerie', idPaciente).set('escala', escala.toString());
     return this.http.get<FreesurferComparedStats>(this.studyUrl + '/refrescar', {params});
   
   }
 
-  refrescarusc(idPaciente: string): Observable<FreesurferComparedStats> {
+  refrescarusc(idPaciente: string, escala: Boolean): Observable<FreesurferComparedStats> {
     const params = new HttpParams()
-    .set('idSerie', idPaciente)
+    .set('idSerie', idPaciente).set('escala', escala.toString());
     return this.http.get<FreesurferComparedStats>(this.studyUrl + '/refrescarusc', {params});
   }
 

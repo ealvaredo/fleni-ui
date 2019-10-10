@@ -3,11 +3,12 @@
         <p>Estudios del paciente: {{estudio.patient.name}}</p>
         <p>Estudio: {{estudio.name}} </p>
     </div>
-    <div class='rounded border p-3 '>
 
 
 
-        <table class="table">
+    <div class='container'>
+        <table class="table table-hover">
+            <caption>Listado de series</caption>
             <thead class="thead-dark">
                 <tr>
                     <th>Serie</th>
@@ -17,11 +18,15 @@
                     <th title='Procesamiento dti de la serie'>dti</th>
                     <th>Ver imágenes</th>
                     <th>Comparar</th>
-                    <th title='Realiza una comparación usando los datos de la base de datos Brain Growth Charts'>Comparar
+                    <th>Comparar en escala</th>
+                    <th title='Realiza una comparación usando los datos de la base de datos Brain Growth Charts'>
+                        Comparar
                         Pediátricos</th>
-                        <th title='Realiza una comparación usando los datos de la base de datos Brain Growth Charts aplicando un factor de escala a los datos'>Comparar
-                            Pediátricos (en escala)</th>
-                        <th>Comparar FA</th>
+                    <th
+                        title='Realiza una comparación usando los datos de la base de datos Brain Growth Charts aplicando un factor de escala a los datos'>
+                        Comparar
+                        Pediátricos (en escala)</th>
+                    <th>Comparar FA</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,20 +39,26 @@
                             <p>Procesado {{serie.freesurfer.fin | date:'dd-MM-yyyy HH:mm' }}</p>
                         </div>
                         <div *ngIf="serie.freesurfer != null && serie.freesurfer.state == 'QUEUE'">
-                                <button type="button" class="btn btn-outline-primary" (click)="aumentarPrioridad(serie.id)" title='Aumenta la prioridad de este proceso'>Priorizar</button>
-                                <button type="button" class="btn btn-outline-primary" (click)="cancelar(serie.id)" title='Cancela el proceso'>Cancelar</button>
-                                    <p>En cola</p>
-                            </div>
+                            <button type="button" class="btn btn-outline-primary" (click)="aumentarPrioridad(serie.id)"
+                                title='Aumenta la prioridad de este proceso'>Priorizar</button>
+                            <button type="button" class="btn btn-outline-primary" (click)="cancelar(serie.id)"
+                                title='Cancela el proceso'>Cancelar</button>
+                            <p>En cola</p>
+                        </div>
 
-                        <button *ngIf="serie.freesurfer == null" type="button" class="btn btn-outline-primary" (click)="procesar(serie.id)"
+                        <button *ngIf="serie.freesurfer == null" type="button" class="btn btn-outline-primary"
+                            (click)="procesar(serie.id)"
                             title='Pone en cola de espera el freesurfer para ser procesado'>Procesar</button>
-                        <p *ngIf="serie.freesurfer != null && serie.freesurfer.state == 'PROCESSING' ">En proceso desde
+                        <p *ngIf="serie.freesurfer != null && serie.freesurfer.state == 'PROCESSING' ">En proceso
+                            desde
                             {{serie.freesurfer.inicio | date:'dd-MM-yyyy HH:mm' }}</p>
-                        <p *ngIf="serie.freesurfer != null && serie.freesurfer.state == 'ERROR' " title='{{serie.freesurfer.description}}'>ERROR</p>
+                        <p *ngIf="serie.freesurfer != null && serie.freesurfer.state == 'ERROR' "
+                            title='{{serie.freesurfer.description}}'>ERROR</p>
                     </td>
                     <td>
                         <img *ngIf="serie.dcm2nii" [src]="dcm2niixImage" title="La serie ya está en formato nii">
-                        <input *ngIf="!serie.dcm2nii" type="checkbox" (click)="dcm2nii(serie.id)" title='Procesar la imagen a formato nii.'>
+                        <input *ngIf="!serie.dcm2nii" type="checkbox" (click)="dcm2nii(serie.id)"
+                            title='Procesar la imagen a formato nii.'>
                     </td>
                     <td>
                         <img *ngIf="serie.dti" [src]="dtiImage" (click)="trackVis(serie.id)" title="Abrir en TrackVis">
@@ -55,10 +66,17 @@
                     </td>
 
                     <td><img [src]="descagarImg" (click)="verImagenes(serie.id)"></td>
-                    <td><img src="../assets/images/descargar.png" (click)="comparar(serie.id)" title="Comparar con pacientes de la base de datos"></td>
-                    <td><img src="../assets/images/descargar.png" (click)="compararUsc(serie.id)" title="Comparar con pacientes de la base de datos Brain Growth Charts"></td>
-                    <td><img src="../assets/images/descargar.png" (click)="compararUscEscala(serie.id)" title="Comparar con pacientes de la base de datos Brain Growth Charts usando factor de escala"></td>
-                    <td><button type="button" class="btn btn-outline-primary" (click)="compararFA(serie.id)" title="Busca dentro de las bases de datos de pacientes sanos, pacientes para realizar la comparación de FA.">Comparar
+                    <td><img src="../assets/images/descargar.png" (click)="comparar(serie.id)"
+                            title="Comparar con pacientes de la base de datos"></td>
+                    <td><img src="../assets/images/descargar.png" (click)="compararEscala(serie.id)"
+                            title="Comparar con pacientes de la base de datos usando factor de escala"></td>
+                    <td><img src="../assets/images/descargar.png" (click)="compararUsc(serie.id)"
+                            title="Comparar con pacientes de la base de datos Brain Growth Charts"></td>
+                    <td><img src="../assets/images/descargar.png" (click)="compararUscEscala(serie.id)"
+                            title="Comparar con pacientes de la base de datos Brain Growth Charts usando factor de escala">
+                    </td>
+                    <td><button type="button" class="btn btn-outline-primary" (click)="compararFA(serie.id)"
+                            title="Busca dentro de las bases de datos de pacientes sanos, pacientes para realizar la comparación de FA.">Comparar
                             FA</button> </td>
                 </tr>
             </tbody>
@@ -68,4 +86,3 @@
         <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
 
     </div>
-</div>

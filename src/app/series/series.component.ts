@@ -122,6 +122,11 @@ export class SeriesComponent implements OnInit {
     this.router.navigate(['/pacientescandidatos', serie ]);
   }
 
+  compararEscala(serie: string) : void  {
+    this.router.navigate(['/pacientescandidatos', serie, true ]);
+  }
+
+
   compararUsc(serie: string) : void  {
     this.router.navigate(['/resultadocomparacionusc', serie ]);
   }
