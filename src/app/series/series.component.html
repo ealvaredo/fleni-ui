@@ -18,7 +18,7 @@
                     <th title='Procesamiento dti de la serie'>dti</th>
                     <th>Ver imágenes</th>
                     <th>Comparar</th>
-                    <th>Comparar en escala</th>
+                    <!--                    <th>Comparar en escala</th>
                     <th title='Realiza una comparación usando los datos de la base de datos Brain Growth Charts'>
                         Comparar
                         Pediátricos</th>
@@ -26,6 +26,7 @@
                         title='Realiza una comparación usando los datos de la base de datos Brain Growth Charts aplicando un factor de escala a los datos'>
                         Comparar
                         Pediátricos (en escala)</th>
+                    -->   
                     <th>Comparar FA</th>
                 </tr>
             </thead>
@@ -66,6 +67,22 @@
                     </td>
 
                     <td><img [src]="descagarImg" (click)="verImagenes(serie.id)"></td>
+                    
+                    <td>
+                            <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="serie.id" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        Comparar
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="serie.id">
+                                        <button title="Comparar con pacientes de la base de datos"  class="dropdown-item" type="button" (click)="comparar(serie.id)">Comparar</button>
+                                        <button title="Comparar con pacientes de la base de datos usando factor de escala" class="dropdown-item" type="button" (click)="compararEscala(serie.id)">Comparar (en escala)</button>
+                                        <button title="Comparar con pacientes de la base de datos Brain Growth Charts" class="dropdown-item" type="button" (click)="compararUsc(serie.id)">Comparar pediátricos</button>
+                                        <button title="Comparar con pacientes de la base de datos Brain Growth Charts usando factor de escala" class="dropdown-item" type="button" (click)="compararUscEscala(serie.id)">Comparar pediátricos (en escala)</button>
+                                    </div>
+                                </div>
+                    </td>    
+                    <!--
                     <td><img src="../assets/images/descargar.png" (click)="comparar(serie.id)"
                             title="Comparar con pacientes de la base de datos"></td>
                     <td><img src="../assets/images/descargar.png" (click)="compararEscala(serie.id)"
@@ -75,6 +92,8 @@
                     <td><img src="../assets/images/descargar.png" (click)="compararUscEscala(serie.id)"
                             title="Comparar con pacientes de la base de datos Brain Growth Charts usando factor de escala">
                     </td>
+-->
+
                     <td><button type="button" class="btn btn-outline-primary" (click)="compararFA(serie.id)"
                             title="Busca dentro de las bases de datos de pacientes sanos, pacientes para realizar la comparación de FA.">Comparar
                             FA</button> </td>
