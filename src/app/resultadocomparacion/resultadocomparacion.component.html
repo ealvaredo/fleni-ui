@@ -1,178 +1,329 @@
 <div class="container pt-3">
-    <h5>
-      Resultados de la comparación de {{stats.pacientePatologico.name}} ( {{stats.pacientePatologico.age}} años) con {{stats.cantidadPacientesSanos}} pacientes sanos (edad promedio {{stats.ageAverage}} años). Fecha de generación: {{stats.date | date:'dd-MM-yyyy HH:mm' }}
-    </h5>
-    <button type="button" class="btn btn-outline-primary" (click)="refrescar()" title="Vuelve a realizar el cálculo de la comparación">Volver a calcular</button>
+  <h5>
+    Resultados de la comparación de {{stats.pacientePatologico.name}} ( {{stats.pacientePatologico.age}} años) con
+    {{stats.cantidadPacientesSanos}} pacientes sanos (edad promedio {{stats.ageAverage}} años). Fecha de generación:
+    {{stats.date | date:'dd-MM-yyyy HH:mm' }}
+  </h5>
+  <button type="button" class="btn btn-outline-primary" (click)="refrescar()"
+    title="Vuelve a realizar el cálculo de la comparación">Volver a calcular</button>
 
-    <div class='rounded border p-3 '>
 
-      <!-- Comparación de volúmenes -->
-      <app-volumenes [volumenes]="stats.volumenes" ></app-volumenes>
+  <div class="accordion" id="accordionExample">
 
-    </div>
-     
-    <div class='rounded border p-3 '>
-        <app-aparctable [stats]="stats.left" [titulo]="'Left'"></app-aparctable>
-        <button type="button" class="btn btn-outline-primary" (click)="freeviewLeft()">Ver en freeview</button>
-        <button type="button" class="btn btn-outline-primary" (click)="compararGrupoEspesorCortialLeft()">Comparar grupo
-          espesor cortical</button>
-        <button type="button" class="btn btn-outline-primary" (click)="compararGrupoVolumetricoLeft()">Comparar grupo
-          volumétrico</button>
-    </div>
+    <div class="card">
 
-    <div class='rounded border p-3 '>
-
-      <app-referenciasfreeview [annotations]="stats.annotations"></app-referenciasfreeview>
-    </div> 
-
-      <div class='rounded border p-3 '>
-        <app-aparctable [stats]="stats.right" [titulo]="'Right'"></app-aparctable>
-        <button type="button" class="btn btn-outline-primary" (click)="freeviewRight()">Ver en freeview</button>
-        <button type="button" class="btn btn-outline-primary" (click)="compararGrupoEspesorCortialRight()">Comparar
-          grupo espesor cortical</button>
-        <button type="button" class="btn btn-outline-primary" (click)="compararGrupoVolumetricoRight()">Comparar grupo
-          volumétrico</button>
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+            aria-expanded="false" aria-controls="collapseOne">
+            Volumenes
+          </button>
+        </h2>
+      </div>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <app-volumenes [volumenes]="stats.volumenes"></app-volumenes>
+        </div>
       </div>
 
-      <div class='rounded border p-3 '>
-        <app-aparctable [stats]="stats.leftAparc2009Stat" [titulo]="'leftAparc2009Stat'"></app-aparctable>
-        <button type="button" class="btn btn-outline-primary" (click)="freeviewLeftAparc2009()">Ver en freeview</button>
-        <button type="button" class="btn btn-outline-primary"
-          (click)="compararGrupoEspesorCortialLeftAparc2009()">Comparar grupo espesor cortical</button>
-        <button type="button" class="btn btn-outline-primary" (click)="compararGrupoVolumetricoLeftAparc2009()">Comparar
-          grupo volumétrico</button>
+
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+              aria-expanded="false" aria-controls="collapseTwo">
+              Left
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+            <app-aparctable [stats]="stats.left" [titulo]="'Left'"></app-aparctable>
+            <app-acciones [id]='left' (onFreeview)="freeviewLeft()"
+              (onCompararEspesorCortical)="compararGrupoEspesorCortialLeft()"
+              (onCompararVolumen)="compararGrupoVolumetricoLeft()" 
+              (onCompararArea)="compararArea('APARC')"></app-acciones>
+          </div>
+        </div>
       </div>
 
-      <div class='rounded border p-3 '>
-        <app-aparctable [stats]="stats.rightAparc2009Stat" [titulo]="'rightAparc2009Stat'"></app-aparctable>
-        <button type="button" class="btn btn-outline-primary" (click)="freeviewRightAparc2009()">Ver en
-          freeview</button>
-        <button type="button" class="btn btn-outline-primary"
-          (click)="compararGrupoEspesorCortialRightAparc2009()">Comparar grupo espesor cortical</button>
-        <button type="button" class="btn btn-outline-primary"
-          (click)="compararGrupoVolumetricoRightAparc2009()">Comparar grupo volumétrico</button>
+
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+              aria-expanded="false" aria-controls="collapseThree">
+              Referencias
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+            <app-referenciasfreeview [annotations]="stats.annotations"></app-referenciasfreeview>
+          </div>
+        </div>
       </div>
 
-      <div class='rounded border p-3 '>
-        <app-aparctable [stats]="stats.leftAparcPialStat" [titulo]="'leftAparcPialStat'"></app-aparctable>
-        <button type="button" class="btn btn-outline-primary" (click)="freeviewAparcPial()">Ver en freeview</button>
+
+      <div class="card">
+        <div class="card-header" id="headingFour">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+              aria-expanded="false" aria-controls="collapseFour">
+              Right
+            </button>
+          </h2>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+          <div class="card-body">
+            <app-aparctable [stats]="stats.right" [titulo]="'Right'"></app-aparctable>
+            <app-acciones [id]='left' (onFreeview)="freeviewRight()"
+              (onCompararEspesorCortical)="compararGrupoEspesorCortialRight()"
+              (onCompararVolumen)="compararGrupoVolumetricoRight()" 
+              (onCompararArea)="compararArea('APARC')"></app-acciones>
+          </div>
+        </div>
       </div>
 
-      <div class='rounded border p-3 '>
-        <app-aparctable [stats]="stats.rightAparcPialStat" [titulo]="'rightAparcPialStat'"></app-aparctable>
-        <button type="button" class="btn btn-outline-primary" (click)="freeviewAparcPial()">Ver en freeview</button>
+      <div class="card">
+        <div class="card-header" id="headingFive">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive"
+              aria-expanded="false" aria-controls="collapseFive">
+              leftAparc2009Stat
+            </button>
+          </h2>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+          <div class="card-body">
+            <app-aparctable [stats]="stats.leftAparc2009Stat" [titulo]="'leftAparc2009Stat'"></app-aparctable>
+            
+            <app-acciones [id]='left' (onFreeview)="freeviewLeftAparc2009()"
+            (onCompararEspesorCortical)="compararGrupoEspesorCortialLeftAparc2009()"
+            (onCompararVolumen)="compararGrupoVolumetricoLeftAparc2009()" 
+            (onCompararArea)="compararArea('APARC_2009')"></app-acciones>
+
+            
+          </div>
+        </div>
       </div>
 
-      <div class='rounded border p-3 '>
-        <app-aparctable [stats]="stats.leftAparcDKTatlasStat" [titulo]="'leftAparcDKTatlasStat'"></app-aparctable>
-        <button type="button" class="btn btn-outline-primary" (click)="freeviewLeftDKT()">Ver en freeview</button>
+
+      <div class="card">
+        <div class="card-header" id="headingSix">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix"
+              aria-expanded="false" aria-controls="collapseSix">
+              rightAparc2009Stat
+            </button>
+          </h2>
+        </div>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+          <div class="card-body">
+            <app-aparctable [stats]="stats.rightAparc2009Stat" [titulo]="'rightAparc2009Stat'"></app-aparctable>
+            
+            <app-acciones [id]='left' (onFreeview)="freeviewRightAparc2009()"
+            (onCompararEspesorCortical)="compararGrupoEspesorCortialRightAparc2009()"
+            (onCompararVolumen)="compararGrupoVolumetricoRightAparc2009()" 
+            (onCompararArea)="compararArea('APARC_2009')"></app-acciones>
+          </div>
+        </div>
       </div>
 
-      <div class='rounded border p-3 '>
-        <app-aparctable [stats]="stats.rightAparcDKTatlasStat" [titulo]="'rightAparcDKTatlasStat'"></app-aparctable>
-        <button type="button" class="btn btn-outline-primary" (click)="freeviewLeftDKT()">Ver en freeview</button>
+
+      <div class="card">
+        <div class="card-header" id="headingSeven">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven"
+              aria-expanded="false" aria-controls="collapseSeven">
+              leftAparcPialStat
+            </button>
+          </h2>
+        </div>
+        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+          <div class="card-body">
+            <app-aparctable [stats]="stats.leftAparcPialStat" [titulo]="'leftAparcPialStat'"></app-aparctable>
+            <button type="button" class="btn btn-outline-primary" (click)="freeviewAparcPial()">Ver en freeview</button>
+          </div>
+        </div>
       </div>
 
-     <app-asegstats [aseg]='stats.aseg'></app-asegstats>
+
+      <div class="card">
+        <div class="card-header" id="headingEight">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight"
+              aria-expanded="false" aria-controls="collapseEight">
+              rightAparcPialStat
+            </button>
+          </h2>
+        </div>
+        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+          <div class="card-body">
+            <app-aparctable [stats]="stats.rightAparcPialStat" [titulo]="'rightAparcPialStat'"></app-aparctable>
+            <button type="button" class="btn btn-outline-primary" (click)="freeviewAparcPial()">Ver en freeview</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingNine">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseNine"
+              aria-expanded="false" aria-controls="collapseNine">
+              leftAparcDKTatlasStat
+            </button>
+          </h2>
+        </div>
+        <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+          <div class="card-body">
+            <app-aparctable [stats]="stats.leftAparcDKTatlasStat" [titulo]="'leftAparcDKTatlasStat'"></app-aparctable>
+            <button type="button" class="btn btn-outline-primary" (click)="freeviewLeftDKT()">Ver en freeview</button>
+          </div>
+        </div>
+      </div>
 
 
-      <div class='rounded border p-3 '>
-        <h6>
-          wmParcStat.stats
-        </h6>
-          <table class="table resultados  table-hover">
-            <thead class="thead-dark">
-              <tr>
-                <th>Structure Name</th>
-                <th>nVoxels</th>
-                <th colspan="3">volume_mm3</th>
-                <th colspan="3">normMean</th>
-                <th colspan="3">normStdDev</th>
-                <th colspan="3">normMin</th>
-                <th colspan="3">normMax</th>
-                <th colspan="3">normRange</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td></td>
-                <td></td>
+      <div class="card">
+        <div class="card-header" id="headingTen">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTen"
+              aria-expanded="false" aria-controls="collapseTen">
+              rightAparcDKTatlasStat
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
+          <div class="card-body">
+            <app-aparctable [stats]="stats.rightAparcDKTatlasStat" [titulo]="'rightAparcDKTatlasStat'"></app-aparctable>
+            <button type="button" class="btn btn-outline-primary" (click)="freeviewLeftDKT()">Ver en freeview</button>
+          </div>
+        </div>
+      </div>
 
-                <td class='datos'>Media</td>
-                <td class='datos'>Desvío</td>
-                <td class='datos'>Paciente</td>
-
-                <td class='datos'>Media</td>
-                <td class='datos'>Desvío</td>
-                <td class='datos'>Paciente</td>
-
-                <td class='datos'>Media</td>
-                <td class='datos'>Desvío</td>
-                <td class='datos'>Paciente</td>
-
-                <td class='datos'>Media</td>
-                <td class='datos'>Desvío</td>
-                <td class='datos'>Paciente</td>
-
-                <td class='datos'>Media</td>
-                <td class='datos'>Desvío</td>
-                <td class='datos'>Paciente</td>
-
-                <td class='datos'>Media</td>
-                <td class='datos'>Desvío</td>
-                <td class='datos'>Paciente</td>
-
-
-              </tr>
-
-              <tr *ngFor="let stat of stats.wmParcStat">
-                <th class='region' scope="row">{{stat.structureName}} </th>
-                <th class='region' scope="row">{{stat.nVoxels}} </th>
-
-                <td>{{stat.volume_mm3.media | number: '1.1-2'}}</td>
-                <td>{{stat.volume_mm3.desvio | number: '1.1-2'}}</td>
-                <td title=" menor a {{stat.volume_mm3.cantidadDesvio + 1 }} desvío standard"
-                  class='desvio{{stat.volume_mm3.cantidadDesvio}}{{stat.volume_mm3.negativo}}'>{{stat.volume_mm3.patologico
-                      | number: '1.1-2'}}</td>
-
-                <td>{{stat.normMean.media | number: '1.1-2'}}</td>
-                <td>{{stat.normMean.desvio | number: '1.1-2'}}</td>
-                <td title=" menor a  {{stat.normMean.cantidadDesvio + 1 }} desvío standard"
-                  class='desvio{{stat.normMean.cantidadDesvio}}{{stat.normMean.negativo}}'>{{stat.normMean.patologico
-                      | number: '1.1-2'}}</td>
-
-                <td>{{stat.normStdDev.media | number: '1.1-2'}}</td>
-                <td>{{stat.normStdDev.desvio | number: '1.1-2'}}</td>
-                <td title=" menor a  {{stat.normStdDev.cantidadDesvio + 1 }} desvío standard"
-                  class='desvio{{stat.normStdDev.cantidadDesvio}}{{stat.normStdDev.negativo}}'>{{stat.normStdDev.patologico
-                      | number: '1.1-2'}}</td>
-
-                <td>{{stat.normMin.media | number: '1.1-2'}}</td>
-                <td>{{stat.normMin.desvio | number: '1.1-2'}}</td>
-                <td title=" menor a  {{stat.normMin.cantidadDesvio + 1 }} desvío standard"
-                  class='desvio{{stat.normMin.cantidadDesvio}}{{stat.normMin.negativo}}'>{{stat.normMin.patologico
-                      | number: '1.1-2'}}</td>
-
-                <td>{{stat.normMax.media | number: '1.1-2'}}</td>
-                <td>{{stat.normMax.desvio | number: '1.1-2'}}</td>
-                <td title=" menor a  {{stat.normMax.cantidadDesvio + 1 }} desvío standard"
-                  class='desvio{{stat.normMax.cantidadDesvio}}{{stat.normMax.negativo}}'>{{stat.normMax.patologico
-                      | number: '1.1-2'}}</td>
-
-                <td>{{stat.normRange.media | number: '1.1-2'}}</td>
-                <td>{{stat.normRange.desvio | number: '1.1-2'}}</td>
-                <td title=" menor a  {{stat.normRange.cantidadDesvio + 1 }} desvío standard"
-                  class='desvio{{stat.normRange.cantidadDesvio}}{{stat.normRange.negativo}}'>{{stat.normRange.patologico
-                      | number: '1.1-2'}}</td>
-
-
-
-              </tr>
-            </tbody>
-          </table>
+      <div class="card">
+        <div class="card-header" id="headingEleven">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEleven"
+              aria-expanded="false" aria-controls="collapseEleven">
+              aseg.stats
+            </button>
+          </h2>
+        </div>
+        <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionExample">
+          <div class="card-body">
+            <app-asegstats [aseg]='stats.aseg'></app-asegstats>
+          </div>
         </div>
 
-    <div class='rounded border p-3 '>
-      <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
-    </div>
-  </div>
+
+        <div class="card">
+          <div class="card-header" id="headingTwelve">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwelve"
+                aria-expanded="false" aria-controls="collapseTwelve">
+                wmParcStat.stats
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionExample">
+            <div class="card-body">
+              <table class="table resultados  table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Structure Name</th>
+                    <th>nVoxels</th>
+                    <th colspan="3">volume_mm3</th>
+                    <th colspan="3">normMean</th>
+                    <th colspan="3">normStdDev</th>
+                    <th colspan="3">normMin</th>
+                    <th colspan="3">normMax</th>
+                    <th colspan="3">normRange</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+
+                    <td class='datos'>Media</td>
+                    <td class='datos'>Desvío</td>
+                    <td class='datos'>Paciente</td>
+
+                    <td class='datos'>Media</td>
+                    <td class='datos'>Desvío</td>
+                    <td class='datos'>Paciente</td>
+
+                    <td class='datos'>Media</td>
+                    <td class='datos'>Desvío</td>
+                    <td class='datos'>Paciente</td>
+
+                    <td class='datos'>Media</td>
+                    <td class='datos'>Desvío</td>
+                    <td class='datos'>Paciente</td>
+
+                    <td class='datos'>Media</td>
+                    <td class='datos'>Desvío</td>
+                    <td class='datos'>Paciente</td>
+
+                    <td class='datos'>Media</td>
+                    <td class='datos'>Desvío</td>
+                    <td class='datos'>Paciente</td>
+
+
+                  </tr>
+
+                  <tr *ngFor="let stat of stats.wmParcStat">
+                    <th class='region' scope="row">{{stat.structureName}} </th>
+                    <th class='region' scope="row">{{stat.nVoxels}} </th>
+
+                    <td>{{stat.volume_mm3.media | number: '1.1-2'}}</td>
+                    <td>{{stat.volume_mm3.desvio | number: '1.1-2'}}</td>
+                    <td title=" menor a {{stat.volume_mm3.cantidadDesvio + 1 }} desvío standard"
+                      class='desvio{{stat.volume_mm3.cantidadDesvio}}{{stat.volume_mm3.negativo}}'>{{stat.volume_mm3.patologico
+                                  | number: '1.1-2'}}</td>
+
+                    <td>{{stat.normMean.media | number: '1.1-2'}}</td>
+                    <td>{{stat.normMean.desvio | number: '1.1-2'}}</td>
+                    <td title=" menor a  {{stat.normMean.cantidadDesvio + 1 }} desvío standard"
+                      class='desvio{{stat.normMean.cantidadDesvio}}{{stat.normMean.negativo}}'>{{stat.normMean.patologico
+                                  | number: '1.1-2'}}</td>
+
+                    <td>{{stat.normStdDev.media | number: '1.1-2'}}</td>
+                    <td>{{stat.normStdDev.desvio | number: '1.1-2'}}</td>
+                    <td title=" menor a  {{stat.normStdDev.cantidadDesvio + 1 }} desvío standard"
+                      class='desvio{{stat.normStdDev.cantidadDesvio}}{{stat.normStdDev.negativo}}'>{{stat.normStdDev.patologico
+                                  | number: '1.1-2'}}</td>
+
+                    <td>{{stat.normMin.media | number: '1.1-2'}}</td>
+                    <td>{{stat.normMin.desvio | number: '1.1-2'}}</td>
+                    <td title=" menor a  {{stat.normMin.cantidadDesvio + 1 }} desvío standard"
+                      class='desvio{{stat.normMin.cantidadDesvio}}{{stat.normMin.negativo}}'>{{stat.normMin.patologico
+                                  | number: '1.1-2'}}</td>
+
+                    <td>{{stat.normMax.media | number: '1.1-2'}}</td>
+                    <td>{{stat.normMax.desvio | number: '1.1-2'}}</td>
+                    <td title=" menor a  {{stat.normMax.cantidadDesvio + 1 }} desvío standard"
+                      class='desvio{{stat.normMax.cantidadDesvio}}{{stat.normMax.negativo}}'>{{stat.normMax.patologico
+                                  | number: '1.1-2'}}</td>
+
+                    <td>{{stat.normRange.media | number: '1.1-2'}}</td>
+                    <td>{{stat.normRange.desvio | number: '1.1-2'}}</td>
+                    <td title=" menor a  {{stat.normRange.cantidadDesvio + 1 }} desvío standard"
+                      class='desvio{{stat.normRange.cantidadDesvio}}{{stat.normRange.negativo}}'>{{stat.normRange.patologico
+                                  | number: '1.1-2'}}</td>
+
+
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <div class='rounded border p-3 '>
+          <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
+        </div>
+      </div>

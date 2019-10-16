@@ -54,6 +54,7 @@ import { ReferenciasfreeviewComponent } from './referenciasfreeview/referenciasf
 import { DesviosComponent } from './component/referenciasfreeview/desvios/desvios.component';
 import { VolumenesComponent } from './volumenes/volumenes.component';
 import { AsegstatsComponent } from './asegstats/asegstats.component';
+import { AccionesComponent } from './components/acciones/acciones.component';
 registerLocaleData(localeFr, 'es-AR');
 const appRoutes: Routes = [
   { path: 'search/:name',      component: BusquedaComponent },
@@ -104,7 +105,8 @@ const appRoutes: Routes = [
     ReferenciasfreeviewComponent,
     DesviosComponent,
     VolumenesComponent,
-    AsegstatsComponent
+    AsegstatsComponent,
+    AccionesComponent
   ],
   imports: [
 

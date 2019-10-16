@@ -265,4 +265,9 @@ compararGrupoEspesorCortialAparc2009(idSerie: string) {
   return this.http.post<void>(this.studyUrl + '/compararGrupoEspesorCortialAparc2009', idSerie);
 }
 
+compararArea(idSerie: string, label: String) {
+  return this.http.post<void>(this.studyUrl + '/compararArea', {idSerie, label});
+}
+
+
 }

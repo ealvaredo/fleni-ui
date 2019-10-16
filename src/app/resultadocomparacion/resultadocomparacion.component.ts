@@ -127,6 +127,13 @@ escala: Boolean = false;
       this.router.navigate(['/error' , error]));
   }
 
+  compararArea(label: String) {
+    this.serieService.compararArea(this.idSerie, label).subscribe(data => data, error =>
+
+      this.router.navigate(['/error' , error]));
+  }
+
+
   refrescar() { 
     console.log(this.escala);
     this.stats = new FreesurferComparedStats();
