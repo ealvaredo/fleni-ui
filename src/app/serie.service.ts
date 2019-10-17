@@ -269,5 +269,10 @@ compararArea(idSerie: string, label: String) {
   return this.http.post<void>(this.studyUrl + '/compararArea', {idSerie, label});
 }
 
+compararCurvatura(idSerie: string, label: String) {
+  var surface: String = "meancurv";
+  return this.http.post<void>(this.studyUrl + '/compararSurface', {idSerie, label, surface});
+}
+
 
 }

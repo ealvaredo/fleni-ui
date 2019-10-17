@@ -13,6 +13,7 @@ export class AccionesComponent implements OnInit {
   @Output() onCompararEspesorCortical: EventEmitter<void> = new EventEmitter<void>();
   @Output() onCompararVolumen: EventEmitter<void> = new EventEmitter<void>();
   @Output() onCompararArea: EventEmitter<void> = new EventEmitter<void>();
+  @Output() onCompararCurvatura: EventEmitter<void> = new EventEmitter<void>();
 
 
   constructor() { }
@@ -35,6 +36,10 @@ export class AccionesComponent implements OnInit {
 
   compararArea() {
     this.onCompararArea.emit();
+  }
+
+  compararCurvatura() {
+    this.onCompararCurvatura.emit();
   }
 
 }

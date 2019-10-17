@@ -133,6 +133,13 @@ escala: Boolean = false;
       this.router.navigate(['/error' , error]));
   }
 
+  compararCurvatura(label: String) {
+    this.serieService.compararCurvatura(this.idSerie, label).subscribe(data => data, error =>
+
+      this.router.navigate(['/error' , error]));
+  }
+
+
 
   refrescar() { 
     console.log(this.escala);
