@@ -56,6 +56,7 @@
 
           <td>
 
+              <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'TIME_OUT'">TIME_OUT</div>
               <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'DISABLED'">Deshabilitado</div>
               <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'ERROR'">Ver Error</div>
               <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'QUEUE'">En cola</div>
