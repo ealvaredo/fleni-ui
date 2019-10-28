@@ -1,0 +1,32 @@
+<div class="container">
+
+    <h1>Eventos</h1>
+</div>
+
+<div class='container'>
+    <table class="table table-hover">
+        <caption>Últimos eventos ocurridos</caption>
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Inicio</th>
+                <th>Fin</th>
+                <th>Descripcion</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let evento of eventos">
+                <th scope="row">{{evento.id}}</th>
+                <td>{{evento.inicio | date:'dd-MM-yyyy HH:mm'}}</td>
+                <td *ngIf="evento.fin == null"></td>
+                <td *ngIf="evento.fin != null">{{evento.fin | date:'dd-MM-yyyy HH:mm'}}</td>
+                <td>{{evento.description}}</td>
+                <td>{{event.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class='container'>
+    <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
+</div>

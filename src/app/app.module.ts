@@ -55,6 +55,7 @@ import { DesviosComponent } from './component/referenciasfreeview/desvios/desvio
 import { VolumenesComponent } from './volumenes/volumenes.component';
 import { AsegstatsComponent } from './asegstats/asegstats.component';
 import { AccionesComponent } from './components/acciones/acciones.component';
+import { LogComponent } from './log/log.component';
 registerLocaleData(localeFr, 'es-AR');
 const appRoutes: Routes = [
   { path: 'search/:name',      component: BusquedaComponent },
@@ -106,7 +107,8 @@ const appRoutes: Routes = [
     DesviosComponent,
     VolumenesComponent,
     AsegstatsComponent,
-    AccionesComponent
+    AccionesComponent,
+    LogComponent
   ],
   imports: [
 

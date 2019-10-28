@@ -123,6 +123,9 @@ export class LauncherComponent implements OnInit {
   seriesProcesadas(): void {
     this.router.navigate(['/seriesprocesadas'])
   }
+  eventos(): void {
+    this.router.navigate(['/log'])
+  }
 
 
 }

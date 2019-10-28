@@ -34,6 +34,7 @@ import { CognitivosComponent } from './cognitivos/cognitivos.component';
 import { AdministracionComponent } from './administracion/administracion.component';
 import { LabelsComponent } from './labels/labels.component';
 import { LabelComponent } from './label/label.component';
+import { LogComponent } from './log/log.component';
 
 const appRoutes: Routes = [
   { path: 'launcher',        component: LauncherComponent },
@@ -77,6 +78,7 @@ const appRoutes: Routes = [
   {path: 'admin', component: AdministracionComponent},
   {path: 'labels', component: LabelsComponent},
   {path: 'label', component: LabelComponent},
+  {path: 'log', component: LogComponent},
   {path: '**', component: PageNotFoundComponent },
   { path: 'error/:error', component: PageNotFoundComponent },
 ];
