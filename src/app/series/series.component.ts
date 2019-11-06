@@ -139,4 +139,10 @@ export class SeriesComponent implements OnInit {
     this.router.navigate(['/pacientescandidatosfa', serie ]);
   }
 
+  visualizarFA(serie: string) : void {
+    console.log(serie);
+    this.serieService.verFa(serie).subscribe();
+
+  }
+ 
 }

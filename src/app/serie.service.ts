@@ -189,6 +189,12 @@ export class SerieService {
     return this.http.post<void>(this.studyUrl + '/trackVis', serie);
   }
 
+  verFa(serie: string) : Observable<void> {
+    console.log(serie);
+    return this.http.post<void>(this.studyUrl + '/fsl', serie);
+  }
+
+
   trackVisImported(serie: string) : Observable<void> {
     console.log(serie);
     

@@ -81,7 +81,9 @@
             <app-acciones [id]='left' (onFreeview)="freeviewRight()"
               (onCompararEspesorCortical)="compararGrupoEspesorCortialRight()"
               (onCompararVolumen)="compararGrupoVolumetricoRight()" 
-              (onCompararArea)="compararArea('APARC')"></app-acciones>
+              (onCompararArea)="compararArea('APARC')"
+              (onCompararCurvatura)="compararCurvatura('APARC')"></app-acciones>
+
           </div>
         </div>
       </div>
@@ -102,8 +104,8 @@
             <app-acciones [id]='left' (onFreeview)="freeviewLeftAparc2009()"
             (onCompararEspesorCortical)="compararGrupoEspesorCortialLeftAparc2009()"
             (onCompararVolumen)="compararGrupoVolumetricoLeftAparc2009()" 
-            (onCompararArea)="compararArea('APARC_2009')"></app-acciones>
-
+            (onCompararArea)="compararArea('APARC_2009')"              
+            (onCompararCurvatura)="compararCurvatura('APARC_2009')"></app-acciones>
             
           </div>
         </div>
@@ -126,7 +128,8 @@
             <app-acciones [id]='left' (onFreeview)="freeviewRightAparc2009()"
             (onCompararEspesorCortical)="compararGrupoEspesorCortialRightAparc2009()"
             (onCompararVolumen)="compararGrupoVolumetricoRightAparc2009()" 
-            (onCompararArea)="compararArea('APARC_2009')"></app-acciones>
+            (onCompararArea)="compararArea('APARC_2009')"
+            (onCompararCurvatura)="compararCurvatura('APARC_2009')"></app-acciones>
           </div>
         </div>
       </div>

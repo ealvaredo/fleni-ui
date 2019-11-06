@@ -82,13 +82,15 @@
                             <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="serie.id" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
-                                        Comparar
+                                        ACCIONES
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="serie.id">
+                                        <button title="Visualizar FA" class="dropdown-item" type="button" (click)="visualizarFA(serie.id)">Ver FA</button>
                                         <button title="Comparar con pacientes de la base de datos"  class="dropdown-item" type="button" (click)="comparar(serie.id)">Comparar</button>
                                         <button title="Comparar con pacientes de la base de datos usando factor de escala" class="dropdown-item" type="button" (click)="compararEscala(serie.id)">Comparar (en escala)</button>
                                         <button title="Comparar con pacientes de la base de datos Brain Growth Charts" class="dropdown-item" type="button" (click)="compararUsc(serie.id)">Comparar pediátricos</button>
                                         <button title="Comparar con pacientes de la base de datos Brain Growth Charts usando factor de escala" class="dropdown-item" type="button" (click)="compararUscEscala(serie.id)">Comparar pediátricos (en escala)</button>
+                                        
                                     </div>
                                 </div>
                     </td>    
