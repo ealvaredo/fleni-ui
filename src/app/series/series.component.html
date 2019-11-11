@@ -68,7 +68,7 @@
                     </td>
                     <td>
                             <p *ngIf="serie.fdtPipeLine != null && serie.fdtPipeLine.state === 'PROCESSED'">{{serie.fdtPipeLine.state}} ({{serie.fdtPipeLine.fin  | date:'dd-MM-yyyy HH:mm'}})</p>
-                            <p *ngIf="serie.fdtPipeLine != null && serie.fdtPipeLine.state != 'PROCESSED'">{{serie.fdtPipeLine.state}} ({{serie.fdtPipeLine.inicio  | date:'dd-MM-yyyy HH:mm'}})</p>
+                            <p  *ngIf="serie.fdtPipeLine != null && serie.fdtPipeLine.state != 'PROCESSED'" title='serie.fdtPipeLine.description'>{{serie.fdtPipeLine.state}} ({{serie.fdtPipeLine.inicio  | date:'dd-MM-yyyy HH:mm'}})</p>
     
                         <!--
                         <img *ngIf="serie.dti" [src]="dtiImage" (click)="trackVis(serie.id)" title="Abrir en TrackVis">
@@ -86,6 +86,7 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="serie.id">
                                         <button title="Visualizar FA" class="dropdown-item" type="button" (click)="visualizarFA(serie.id)">Ver FA</button>
+                                        <button title="Visualizar TBSS" class="dropdown-item" type="button" (click)="visualizarTBSS(serie.id)">Ver TBSS</button>
                                         <button title="Comparar con pacientes de la base de datos"  class="dropdown-item" type="button" (click)="comparar(serie.id)">Comparar</button>
                                         <button title="Comparar con pacientes de la base de datos usando factor de escala" class="dropdown-item" type="button" (click)="compararEscala(serie.id)">Comparar (en escala)</button>
                                         <button title="Comparar con pacientes de la base de datos Brain Growth Charts" class="dropdown-item" type="button" (click)="compararUsc(serie.id)">Comparar pediátricos</button>
