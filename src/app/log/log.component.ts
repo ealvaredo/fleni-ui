@@ -17,4 +17,10 @@ export class LogComponent implements OnInit {
     return this.http.get<any[]>(environment.apiUrl + '/log/all').subscribe(data => this.eventos = data);
   }
 
+  borarEventos() {
+
+    return this.http.get<void>(environment.apiUrl + '/log/delete').subscribe(data => this.ngOnInit());
+
+  }
+
 }
