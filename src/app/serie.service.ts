@@ -194,6 +194,11 @@ export class SerieService {
     return this.http.post<void>(this.studyUrl + '/fsl', serie);
   }
 
+  verTBSS(serie: string) : Observable<void> {
+    console.log(serie);
+    return this.http.post<void>(this.studyUrl + '/tbss', serie);
+  }
+
 
   trackVisImported(serie: string) : Observable<void> {
     console.log(serie);

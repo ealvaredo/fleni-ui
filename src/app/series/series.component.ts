@@ -142,7 +142,13 @@ export class SeriesComponent implements OnInit {
   visualizarFA(serie: string) : void {
     console.log(serie);
     this.serieService.verFa(serie).subscribe();
-
   }
+
+
+  visualizarTBSS(serie: string) : void {
+    console.log(serie);
+    this.serieService.verTBSS(serie).subscribe();
+  }
+
  
 }
