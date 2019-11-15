@@ -60,7 +60,7 @@ export class TbsslauncherComponent implements OnInit {
   }
 
   procesado() {
-    this.router.navigate(['/tbssseries', 'PROCESSING']);
+    this.router.navigate(['/tbssseries', 'PROCESSED']);
 
   }
 
