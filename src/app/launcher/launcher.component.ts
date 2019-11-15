@@ -21,6 +21,7 @@ export class LauncherComponent implements OnInit {
   cantidadProcesados: Number;
   cantidadencola: Number;
   cantidadProcesando: Number;
+  cantidadTbss: Number;
 
   ngOnInit() {
 
@@ -57,6 +58,9 @@ export class LauncherComponent implements OnInit {
       data => this.cantidadProcesando = data
     );
 
+    this.http.get<Number>(environment.apiUrl + '/launcher/tbss').subscribe(
+      data => this.cantidadTbss = data
+    );
 
   }
 
@@ -125,6 +129,9 @@ export class LauncherComponent implements OnInit {
   }
   eventos(): void {
     this.router.navigate(['/log'])
+  }
+  tbss(): void {
+    this.router.navigate(['/tbsslauncher'])
   }
 
 

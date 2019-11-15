@@ -171,13 +171,23 @@
         </div>
 
         <div class="card border-primary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Eventos del sistema<span title='Cantidad de eventos del sistema'
-                                        class="badge badge-primary">?</span></div>
+                <div class="card-header">Eventos del sistema<span title='Cantidad de eventos del sistema'
+                                class="badge badge-primary">?</span></div>
+                <div class="card-body text-primary">
+                        <h5 class="card-title">Eventos del sistema</h5>
+                        <p class="card-text">Listado de los últimos eventos en el sistema.</p>
+                        <button type="button" class="btn btn-outline-primary stretched-link"
+                                (click)="eventos()">Eventos</button>
+                </div>
+        </div>
+        <div class="card border-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Tbss<span title='Cantidad de procesamientos de TBSS'
+                                        class="badge badge-primary">{{cantidadTbss}}</span></div>
                         <div class="card-body text-primary">
-                                <h5 class="card-title">Eventos del sistema</h5>
-                                <p class="card-text">Listado de los últimos eventos en el sistema.</p>
+                                <h5 class="card-title">TBSS</h5>
+                                <p class="card-text">Procesamiento de TBSS.</p>
                                 <button type="button" class="btn btn-outline-primary stretched-link"
-                                        (click)="eventos()">Eventos</button>
+                                        (click)="tbss()">TBSS</button>
                         </div>
                 </div>
         

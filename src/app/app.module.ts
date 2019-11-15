@@ -56,6 +56,10 @@ import { VolumenesComponent } from './volumenes/volumenes.component';
 import { AsegstatsComponent } from './asegstats/asegstats.component';
 import { AccionesComponent } from './components/acciones/acciones.component';
 import { LogComponent } from './log/log.component';
+import { SerielistComponent } from './serielist/serielist.component';
+import { TbsslauncherComponent } from './tbsslauncher/tbsslauncher.component';
+import { TbssseriesComponent } from './tbssseries/tbssseries.component';
+import { NamePipe } from './pipes/name.pipe';
 registerLocaleData(localeFr, 'es-AR');
 const appRoutes: Routes = [
   { path: 'search/:name',      component: BusquedaComponent },
@@ -108,7 +112,11 @@ const appRoutes: Routes = [
     VolumenesComponent,
     AsegstatsComponent,
     AccionesComponent,
-    LogComponent
+    LogComponent,
+    SerielistComponent,
+    TbsslauncherComponent,
+    TbssseriesComponent,
+    NamePipe
   ],
   imports: [
 

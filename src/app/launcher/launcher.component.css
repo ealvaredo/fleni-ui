@@ -1,7 +1,14 @@
+.card.card-upgrade .card-category {
+  max-width: 530px;
+  margin: 0 auto;
+}
+
 html {
     position: relative;
     min-height: 100%;
   }
+
+  
   
   body {
     overflow-x: hidden;

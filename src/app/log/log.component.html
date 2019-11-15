@@ -15,6 +15,7 @@
                 <th>Fin</th>
                 <th>Descripcion</th>
                 <th>Estado</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,18 @@
                 <td *ngIf="evento.fin != null">{{evento.fin | date:'dd-MM-yyyy HH:mm'}}</td>
                 <td>{{evento.description}}</td>
                 <td>{{evento.state}}</td>
+                <td>
+                        <div *ngIf='evento.referencia != null' class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="evento.id" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    ACCIONES
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="evento.referencia">
+                                    <button title="Ver serie" class="dropdown-item" type="button" (click)="verSerie(evento.referencia)">Ver Serie</button>
+                                </div>
+                            </div>
+
+                </td>
             </tr>
         </tbody>
     </table>

@@ -286,4 +286,9 @@ compararCurvatura(idSerie: string, label: String) {
 }
 
 
+seriesByTbssStatus(status: String) : Observable<Serie[]> {
+  return this.http.get<Serie[]>(this.studyUrl + '/tbssByStatus', { params : { 'state': status.toString()} });
+}
+
+
 }

@@ -35,6 +35,8 @@ import { AdministracionComponent } from './administracion/administracion.compone
 import { LabelsComponent } from './labels/labels.component';
 import { LabelComponent } from './label/label.component';
 import { LogComponent } from './log/log.component';
+import { TbsslauncherComponent } from './tbsslauncher/tbsslauncher.component';
+import { TbssseriesComponent } from './tbssseries/tbssseries.component';
 
 const appRoutes: Routes = [
   { path: 'launcher',        component: LauncherComponent },
@@ -79,6 +81,8 @@ const appRoutes: Routes = [
   {path: 'labels', component: LabelsComponent},
   {path: 'label', component: LabelComponent},
   {path: 'log', component: LogComponent},
+  {path: 'tbsslauncher', component: TbsslauncherComponent},
+  {path: 'tbssseries/:status', component: TbssseriesComponent},
   {path: '**', component: PageNotFoundComponent },
   { path: 'error/:error', component: PageNotFoundComponent },
 ];
