@@ -18,7 +18,7 @@
                     <th title='Indica el estado de conversión a formato NII'>Formato NII</th>
                     <th title='Indica el estado de procesamiento de FA'>FA</th>
                     <th title='Indica el estado de procesamiento de TBSS'>TBSS</th>
-                    <!--<th>Ver imágenes</th>-->
+                    <th>Ver imágenes</th>
                     <th>Comparar</th>
                     <!--                    <th>Comparar en escala</th>
                     <th title='Realiza una comparación usando los datos de la base de datos Brain Growth Charts'>
@@ -84,9 +84,7 @@
                             <p  *ngIf="serie.tbss != null && serie.tbss.state != 'PROCESSED'" title='{{serie.tbss.description}}'>{{serie.tbss.state}} ({{serie.tbss.inicio  | date:'dd-MM-yyyy HH:mm'}})</p>
                     </td>
 
-                     <!--   
                     <td><img [src]="descagarImg" (click)="verImagenes(serie.id)"></td>
-                    -->
                     <td>
                             <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="serie.id" data-toggle="dropdown"
