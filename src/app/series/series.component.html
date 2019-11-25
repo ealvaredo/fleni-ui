@@ -95,6 +95,7 @@
                                             <button title="Reprocessar NII" class="dropdown-item" type="button" (click)="reprocesarNII(serie.id)">Reprocesar NII</button>
                                             <button *ngIf="serie.dicomToNii && serie.dicomToNii.state === 'PROCESSED'" title="Reprocessar FA" class="dropdown-item" type="button" (click)="reprocesarFA(serie.id)">Reprocesar FA</button>
                                             <button *ngIf="serie.fdtPipeLine && serie.fdtPipeLine.state === 'PROCESSED'" title="Reprocessar TBSS" class="dropdown-item" type="button" (click)="reprocesarTBSS(serie.id)">Reprocesar TBSS</button>
+                                            <button *ngIf="serie.freesurfer && serie.freesurfer.state === 'PROCESSED'" title="Reprocessar FREESURFER" class="dropdown-item" type="button" (click)="reprocesarFreesurfer(serie.id)">Reprocesar Freesurfer</button>
                                             <button title="Visualizar FA" class="dropdown-item" type="button" (click)="visualizarFA(serie.id)">Ver FA</button>
                                         <button title="Visualizar TBSS" class="dropdown-item" type="button" (click)="visualizarTBSS(serie.id)">Ver TBSS</button>
                                         <button title="Comparar con pacientes de la base de datos"  class="dropdown-item" type="button" (click)="comparar(serie.id)">Comparar</button>

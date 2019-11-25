@@ -160,7 +160,11 @@ export class SeriesComponent implements OnInit {
 
   reprocesarTBSS(serie: string) : void {
     this.serieService.changeTbssState(serie, "QUEUE").subscribe(data => this.verSeries(this.study));
-    
+  }
+
+
+  reprocesarFreesurfer(serie: string) : void {
+    this.serieService.changeFreesurferState(serie, "QUEUE").subscribe(data => this.verSeries(this.study));
   }
  
 }

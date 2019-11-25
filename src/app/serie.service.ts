@@ -332,5 +332,17 @@ export class SerieService {
    )
   }
 
+  changeFreesurferState(serie: string, state: string) {
+
+    return this.http.post<void>(this.studyUrl + "/freesurfer/changeState", 
+    {
+      'id': serie, 'tbss': { 'state': state }
+    }
+ )
+  }
+
+  
+
+
 
 }
