@@ -60,6 +60,7 @@ import { SerielistComponent } from './serielist/serielist.component';
 import { TbsslauncherComponent } from './tbsslauncher/tbsslauncher.component';
 import { TbssseriesComponent } from './tbssseries/tbssseries.component';
 import { NamePipe } from './pipes/name.pipe';
+import { SerieComponent } from './serie/serie.component';
 registerLocaleData(localeFr, 'es-AR');
 const appRoutes: Routes = [
   { path: 'search/:name',      component: BusquedaComponent },
@@ -116,7 +117,8 @@ const appRoutes: Routes = [
     SerielistComponent,
     TbsslauncherComponent,
     TbssseriesComponent,
-    NamePipe
+    NamePipe,
+    SerieComponent
   ],
   imports: [
 

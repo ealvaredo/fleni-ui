@@ -150,5 +150,17 @@ export class SeriesComponent implements OnInit {
     this.serieService.verTBSS(serie).subscribe();
   }
 
+  reprocesarFA(serie: string) : void {
+    this.serieService.changeFaState(serie, "QUEUE").subscribe(data => this.verSeries(this.study));
+  }
+
+  reprocesarNII(serie: string) : void {
+    this.serieService.changeNIIState(serie, "QUEUE").subscribe(data => this.verSeries(this.study));
+  }
+
+  reprocesarTBSS(serie: string) : void {
+    this.serieService.changeTbssState(serie, "QUEUE").subscribe(data => this.verSeries(this.study));
+    
+  }
  
 }

@@ -1,12 +1,12 @@
 <div class="container pt-3">
-    <div class='rounded border p-3 '>
+    <div class=''>
         <p>Estudios del paciente: {{estudio.patient.name}}</p>
         <p>Estudio: {{estudio.name}} </p>
     </div>
 
 
 
-    <div class='container'>
+    <div class=''>
         <table class="table table-hover">
             <caption>Listado de series</caption>
             <thead class="thead-dark">
@@ -18,7 +18,7 @@
                     <th title='Indica el estado de conversión a formato NII'>Formato NII</th>
                     <th title='Indica el estado de procesamiento de FA'>FA</th>
                     <th title='Indica el estado de procesamiento de TBSS'>TBSS</th>
-                    <th>Ver imágenes</th>
+                    <!-- <th>Ver imágenes</th>-->
                     <th>Comparar</th>
                     <!--                    <th>Comparar en escala</th>
                     <th title='Realiza una comparación usando los datos de la base de datos Brain Growth Charts'>
@@ -34,8 +34,8 @@
             </thead>
             <tbody>
                 <tr *ngFor="let serie of studiesSeries">
-                    <th scope="row"> {{serie.study.patient.name}} </th>
-                    <th scope="row"> {{serie.name}} </th>
+                    <th scope="row"> {{serie.study.patient.name | name }} </th>
+                    <th scope="row"> {{serie.name | name}} </th>
                     <td scope="row"> {{serie.serieNumber}} </td>
                     <td>
                         <div *ngIf="serie.freesurfer != null && serie.freesurfer.state == 'PROCESSED'">
@@ -84,7 +84,7 @@
                             <p  *ngIf="serie.tbss != null && serie.tbss.state != 'PROCESSED'" title='{{serie.tbss.description}}'>{{serie.tbss.state}} ({{serie.tbss.inicio  | date:'dd-MM-yyyy HH:mm'}})</p>
                     </td>
 
-                    <td><img [src]="descagarImg" (click)="verImagenes(serie.id)"></td>
+                    <!-- <td><img [src]="descagarImg" (click)="verImagenes(serie.id)"></td>-->
                     <td>
                             <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="serie.id" data-toggle="dropdown"
@@ -92,12 +92,16 @@
                                         ACCIONES
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="serie.id">
-                                        <button title="Visualizar FA" class="dropdown-item" type="button" (click)="visualizarFA(serie.id)">Ver FA</button>
+                                            <button title="Reprocessar NII" class="dropdown-item" type="button" (click)="reprocesarNII(serie.id)">Reprocesar NII</button>
+                                            <button *ngIf="serie.dicomToNii && serie.dicomToNii.state === 'PROCESSED'" title="Reprocessar FA" class="dropdown-item" type="button" (click)="reprocesarFA(serie.id)">Reprocesar FA</button>
+                                            <button *ngIf="serie.fdtPipeLine && serie.fdtPipeLine.state === 'PROCESSED'" title="Reprocessar TBSS" class="dropdown-item" type="button" (click)="reprocesarTBSS(serie.id)">Reprocesar TBSS</button>
+                                            <button title="Visualizar FA" class="dropdown-item" type="button" (click)="visualizarFA(serie.id)">Ver FA</button>
                                         <button title="Visualizar TBSS" class="dropdown-item" type="button" (click)="visualizarTBSS(serie.id)">Ver TBSS</button>
                                         <button title="Comparar con pacientes de la base de datos"  class="dropdown-item" type="button" (click)="comparar(serie.id)">Comparar</button>
                                         <button title="Comparar con pacientes de la base de datos usando factor de escala" class="dropdown-item" type="button" (click)="compararEscala(serie.id)">Comparar (en escala)</button>
                                         <button title="Comparar con pacientes de la base de datos Brain Growth Charts" class="dropdown-item" type="button" (click)="compararUsc(serie.id)">Comparar pediátricos</button>
                                         <button title="Comparar con pacientes de la base de datos Brain Growth Charts usando factor de escala" class="dropdown-item" type="button" (click)="compararUscEscala(serie.id)">Comparar pediátricos (en escala)</button>
+                                        <button title="Ver imágenes" class="dropdown-item" type="button" (click)="verImagenes(serie.id)">Ver imágenes</button>
                                         
                                     </div>
                                 </div>

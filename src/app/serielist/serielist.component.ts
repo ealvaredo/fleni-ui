@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SerieService } from '../serie.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Patient } from '../Patient';
@@ -16,6 +16,9 @@ export class SerielistComponent implements OnInit {
 
   @Input() series: Serie[];
   @Input() titulo: string;
+  @Output() onSearchChange: EventEmitter<string> = new EventEmitter<string>();
+
+  busqueda: String;
 
 
   descagarImg: string;
@@ -37,6 +40,7 @@ export class SerielistComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router ) { 
 
+      this.busqueda = "";
       this.descagarImg = '../assets/images/eye.png';
       this.procesarImagen = '../assets/images/process.png';
       this.trashImagen = '../assets/images/trash.png';
@@ -53,7 +57,8 @@ export class SerielistComponent implements OnInit {
 
 
   verSeries(study: number) : void{
-    this.serieService.getSeries(study).subscribe(data => this.studiesSeries = data);
+    this.onSearchChange.emit(this.busqueda.toString());
+    //this.serieService.getSeries(study).subscribe(data => this.studiesSeries = data);
   }
 
   obtenerEstudio(study: number) : void {
@@ -149,6 +154,31 @@ export class SerielistComponent implements OnInit {
     console.log(serie);
     this.serieService.verTBSS(serie).subscribe();
   }
+
+
+  buscar(text: string): void {
+    //console.log(text);
+    this.busqueda = text;
+    this.onSearchChange.emit(text);
+  }  
+
+
+  reprocesarFA(serie: string) : void {
+    this.serieService.changeFaState(serie, "QUEUE").subscribe(data => this.verSeries(this.study));
+  }
+
+  reprocesarNII(serie: string) : void {
+    this.serieService.changeNIIState(serie, "QUEUE").subscribe(data => this.verSeries(this.study));
+  }
+
+  reprocesarTBSS(serie: string) : void {
+    this.serieService.changeTbssState(serie, "QUEUE").subscribe(data => this.verSeries(this.study));
+  }
+
+  eliminarSerie(serie: string) : void {
+    this.serieService.eliminarSerie(serie).subscribe(data => this.verSeries(this.study));
+  }
+
 
 
 }
