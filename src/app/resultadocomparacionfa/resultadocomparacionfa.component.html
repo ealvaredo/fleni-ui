@@ -1,3 +1,34 @@
 <p>
   Se está realizando la comparación. Aguarde unos instantes hasta que se abra el probrama MIPAV.
+
+
+
+
 </p>
+
+
+
+<div class='container'>
+    <table class="table table-hover">
+      <caption>Comparación</caption>
+      <thead class="thead-dark">
+        <tr>
+          <th>Zona</th>
+          <th>Intensidad original</th>
+          <th>Desvío</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          <tr *ngFor="let data of resultadoComparacion.voxeles">
+            <td>{{data.name}}</td>
+            <td>{{data.value}}</td>
+            <td>{{data.desvioPatient | number: '1.1-3'}}</td>
+          </tr> 
+
+
+
+      </tbody>
+    </table> 
+      
+        
