@@ -16,6 +16,10 @@
           <th>Zona</th>
           <th>Intensidad original</th>
           <th>Desvío</th>
+          <th>Desvío pacientes Base de datos</th>
+          <th>FA Paciente</th>
+          <th>FA Pacientes Base de datos</th>
+
         </tr>
       </thead>
       <tbody>
@@ -24,6 +28,9 @@
             <td>{{data.name}}</td>
             <td>{{data.value}}</td>
             <td>{{data.desvioPatient | number: '1.1-3'}}</td>
+            <td>{{data.desvio | number: '1.1-3'}}</td>
+            <td>{{data.patientFA | number: '1.1-3'}}</td>
+            <td>{{data.average | number: '1.1-3'}}</td>
           </tr> 
 
 
