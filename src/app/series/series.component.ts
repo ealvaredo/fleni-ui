@@ -166,5 +166,9 @@ export class SeriesComponent implements OnInit {
   reprocesarFreesurfer(serie: string) : void {
     this.serieService.changeFreesurferState(serie, "QUEUE").subscribe(data => this.verSeries(this.study));
   }
+
+  marcarFreesurferProcesado(serie: string) : void {
+    this.serieService.changeFreesurferState(serie, "PROCESSED").subscribe(data => this.verSeries(this.study));
+  }
  
 }
