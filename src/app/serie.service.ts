@@ -200,6 +200,11 @@ export class SerieService {
     return this.http.post<void>(this.studyUrl + '/tbss', serie);
   }
 
+  verTBSSPatient(paciente: string): Observable<void> {
+    console.log(paciente);
+    return this.http.post<void>(this.studyUrl + '/tbssPatient', paciente);
+  }
+
 
   trackVisImported(serie: string): Observable<void> {
     console.log(serie);

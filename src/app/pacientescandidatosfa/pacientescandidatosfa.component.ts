@@ -57,6 +57,10 @@ export class PacientescandidatosfaComponent implements OnInit {
     this.serieService.freeViewPatient(idPatient).subscribe();
   }
 
+  verTbss(idPatient: string) {
+    this.serieService.verTBSSPatient(idPatient).subscribe();
+  }
+
   descartar(idPatient: string) {
     console.log(idPatient);
     
