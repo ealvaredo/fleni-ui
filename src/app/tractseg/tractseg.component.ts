@@ -42,23 +42,23 @@ export class TractsegComponent implements OnInit {
 
 
   error() {
-    this.router.navigate(['/tbssseries', 'ERROR']);
+    this.router.navigate(['/tractsegseries', 'ERROR']);
 
   }
 
   procesando() {
-    this.router.navigate(['/tbssseries', 'PROCESSING']);
+    this.router.navigate(['/tractsegseries', 'PROCESSING']);
 
   }
 
 
   cola() {
-    this.router.navigate(['/tbssseries', 'QUEUE']);
+    this.router.navigate(['/tractsegseries', 'QUEUE']);
 
   }
 
   procesado() {
-    this.router.navigate(['/tbssseries', 'PROCESSED']);
+    this.router.navigate(['/tractsegseries', 'PROCESSED']);
 
   }
 

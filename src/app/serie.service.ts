@@ -296,6 +296,11 @@ export class SerieService {
     return this.http.get<Serie[]>(this.studyUrl + '/tbssByStatus', { params: { 'state': status.toString() } });
   }
 
+  seriesByTactSegStatus(status: String): Observable<Serie[]> {
+    return this.http.get<Serie[]>(this.studyUrl + '/tractSegStatus', { params: { 'state': status.toString() } });
+  }
+
+
   findSeries(query: HttpParams) {
     return this.http.get<Serie[]>(this.studyUrl + '/findSeries', { params: query });
   }

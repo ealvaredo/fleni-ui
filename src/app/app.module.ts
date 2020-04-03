@@ -63,6 +63,7 @@ import { NamePipe } from './pipes/name.pipe';
 import { SerieComponent } from './serie/serie.component';
 import { TractsegComponent } from './tractseg/tractseg.component';
 import { CardlauncherComponent } from './component/cardlauncher/cardlauncher.component';
+import { TractsegseriesComponent } from './tractsegseries/tractsegseries.component';
 registerLocaleData(localeFr, 'es-AR');
 const appRoutes: Routes = [
   { path: 'search/:name',      component: BusquedaComponent },
@@ -122,7 +123,8 @@ const appRoutes: Routes = [
     NamePipe,
     SerieComponent,
     TractsegComponent,
-    CardlauncherComponent
+    CardlauncherComponent,
+    TractsegseriesComponent
   ],
   imports: [
 

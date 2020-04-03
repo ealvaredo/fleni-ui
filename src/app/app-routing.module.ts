@@ -39,6 +39,7 @@ import { TbsslauncherComponent } from './tbsslauncher/tbsslauncher.component';
 import { TbssseriesComponent } from './tbssseries/tbssseries.component';
 import {SerieComponent} from './serie/serie.component';
 import {TractsegComponent} from './tractseg/tractseg.component'
+import { TractsegseriesComponent } from './tractsegseries/tractsegseries.component';
 
 
 const appRoutes: Routes = [
@@ -87,6 +88,7 @@ const appRoutes: Routes = [
   {path: 'tbsslauncher', component: TbsslauncherComponent},
   {path: 'tractseg', component: TractsegComponent},
   {path: 'tbssseries/:status', component: TbssseriesComponent},
+  {path: 'tractsegseries/:status', component: TractsegseriesComponent},
   {path: 'serie/:id', component: SerieComponent},
   {path: '**', component: PageNotFoundComponent },
   { path: 'error/:error', component: PageNotFoundComponent },
