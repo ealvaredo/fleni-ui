@@ -15,15 +15,16 @@
           <th>FDT (FA)</th>
           <th>TBSS</th>
           <th colspan='4'>Freesurfer</th>
+          <th colspan='4'>TRACTSEG</th>
 
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let patient of patients">
-          <th scope="row">{{patient.name}} </th>
-          <td>{{patient.age}}</td>
-          <td>{{patient.sex}}</td>
-          <td>
+          <th scope="row" class='patientName'>{{patient.name}} </th>
+          <td class='data'>{{patient.age}}</td>
+          <td class='data'>{{patient.sex}}</td>
+          <td class='data'>
               <input *ngIf="patient.state == 'NEW'" type="checkbox" (click)="onDti(patient.id)" title='Procesar dti.'>
 
 
@@ -32,7 +33,7 @@
               -->
           </td>
 
-          <td>
+          <td class='data'>
             <div *ngIf="patient.fdtPipeline != null &&  patient.fdtPipeline.state == 'ERROR'" title='{{patient.fdtPipeline.message}}'>Ver Error</div>
             <div *ngIf="patient.fdtPipeline != null &&  patient.fdtPipeline.state == 'QUEUE'">En cola</div>
             <div *ngIf="patient.fdtPipeline != null &&  patient.fdtPipeline.state == 'PROCESSING'">Procesando</div>
@@ -42,7 +43,7 @@
               -->
           </td>
 
-          <td>
+          <td class='data'>
             <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'ERROR'">Ver Error</div>
             <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'QUEUE'">En cola</div>
             <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'PROCESSING'">Procesando</div>
@@ -54,8 +55,7 @@
             -->
           </td>
 
-          <td>
-
+          <td class='data'>
               <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'TIME_OUT'">TIME_OUT</div>
               <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'DISABLED'">Deshabilitado</div>
               <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'ERROR'">Ver Error</div>
@@ -63,25 +63,37 @@
               <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'PROCESSING'">Procesando</div>
               <div *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'PROCESSED'">
                 <img  src="../assets/images/tbss.png" (click)="onFreeView(patient.id)" title="Abrir en Freeview">
-     
               </div>   
-
           </td>
-
-          <td> 
-
-              <p *ngIf="patient.freeSurfer != null">{{patient.freeSurfer.inicio | date:'dd-MM-yyyy HH:mm'}} </p>   
-
+          <td class='time'>  
+              <p *ngIf="patient.freeSurfer != null && patient.freeSurfer.inicio != null">{{patient.freeSurfer.inicio | date:'dd-MM-yyyy HH:mm'}} </p>   
           </td>
-          <td>
+          <td class='time'>
               <p *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'PROCESSED'">{{patient.freeSurfer.fin | date:'dd-MM-yyyy HH:mm'}} </p>   
-  
           </td>
-          <td> 
-
+          <td class='time'> 
               <p *ngIf="patient.freeSurfer != null && patient.freeSurfer.state == 'PROCESSED'">{{(patient.freeSurfer.fin - patient.freeSurfer.inicio)  / 1000 / 60 / 60 | number: '1.1-2'  }} horas  </p>   
-
           </td>
+
+
+          <td class='data'>
+            <div *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'TIME_OUT'">TIME_OUT</div>
+            <div *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'DISABLED'">Deshabilitado</div>
+            <div *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'ERROR'">Ver Error</div>
+            <div *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'QUEUE'">En cola</div>
+            <div *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'PROCESSING'">Procesando</div>
+            <div *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'PROCESSED'">Procesado</div>
+        </td>
+        <td class='time'> 
+            <p *ngIf="patient.tractSeg != null && patient.tractSeg.inicio != null">{{patient.tractSeg.inicio | date:'dd-MM-yyyy HH:mm'}} </p>   
+        </td>
+        <td class='time'>
+            <p *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'PROCESSED'">{{patient.tractSeg.fin | date:'dd-MM-yyyy HH:mm'}} </p>   
+        </td>
+        <td class='time'> 
+            <p *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'PROCESSED'">{{(patient.tractSeg.fin - patient.freeSurfer.inicio)  / 1000 / 60 / 60 | number: '1.1-2'  }} horas  </p>   
+        </td>
+
 
         </tr>
       </tbody>
