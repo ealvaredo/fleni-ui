@@ -23,6 +23,10 @@ export class PacientesestudioComponent implements OnInit {
  
     this.router.navigate(['/studies', paciente]);
   }
+
+  volver() {
+    
+  }
   
 
 }

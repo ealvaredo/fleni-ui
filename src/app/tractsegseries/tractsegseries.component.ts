@@ -29,12 +29,12 @@ export class TractsegseriesComponent implements OnInit {
 }
 
 
-buscar(texto) { 
+buscar(texto: string) { 
 
   this.service.findSeries(
     new HttpParams()
     .set("tractSegState", this.status.toString())
-    .set("patientName", texto.toString()))
+    .set("patientName", texto))
     .subscribe(data => this.series = data);
 }
 

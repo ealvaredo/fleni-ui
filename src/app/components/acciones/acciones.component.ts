@@ -8,7 +8,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class AccionesComponent implements OnInit {
 
 
-  @Input() id: string;
   @Output() onFreeview: EventEmitter<void> = new EventEmitter<void>();
   @Output() onCompararEspesorCortical: EventEmitter<void> = new EventEmitter<void>();
   @Output() onCompararVolumen: EventEmitter<void> = new EventEmitter<void>();

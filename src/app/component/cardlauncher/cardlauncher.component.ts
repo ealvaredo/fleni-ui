@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardlauncherComponent implements OnInit {
 
+ title: string = "";
+ cantidad: number = 1;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ingresar() {
+
   }
 
 }
