@@ -17,6 +17,8 @@ export class SerielistComponent implements OnInit {
   @Input() series: Serie[];
   @Input() titulo: string;
   @Output() onSearchChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onVolver: EventEmitter<void> = new EventEmitter<void>();
+
 
   busqueda: String;
 
@@ -120,7 +122,9 @@ export class SerielistComponent implements OnInit {
   }
 
   volver() : void {
-  this.router.navigate(['/studies', this.patient ]);
+
+    this.onVolver.emit();
+
   }
 
   comparar(serie: string) : void  {

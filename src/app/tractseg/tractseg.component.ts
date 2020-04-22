@@ -14,6 +14,7 @@ export class TractsegComponent implements OnInit {
   cantidadError: Number = -1;
   cantidadCola: Number = -1;
   cantidadProcesando: Number = -1;
+  cantidadEsperando: Number = -1;
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) { }
 
@@ -36,6 +37,9 @@ export class TractsegComponent implements OnInit {
       data => this.cantidadProcesando = data
     );
 
+    this.http.get<Number>(environment.apiUrl + '/launcher/tractsegesperando').subscribe(
+      data => this.cantidadEsperando = data
+    );
 
 
   }
@@ -59,6 +63,11 @@ export class TractsegComponent implements OnInit {
 
   procesado() {
     this.router.navigate(['/tractsegseries', 'PROCESSED']);
+
+  }
+
+  esperando() {
+    this.router.navigate(['/tractsegseries', 'WAITTING']);
 
   }
 
