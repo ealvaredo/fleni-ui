@@ -76,4 +76,10 @@ export class ImportdatabaseService {
   }
 
 
+  exportar(id: string): Observable<Blob> {
+    const options = { responseType: 'blob' as 'json' , params : new HttpParams().set('idDatabase', id) }
+    
+    return this.http.get<Blob>(environment.apiUrl + '/importdatabase/export',  options);
+  }
+
 }

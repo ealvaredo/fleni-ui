@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Patient } from '../Patient';
 import { Database } from '../model/Database';
 import { SerieService } from '../serie.service';
+import {saveAs as importedSaveAs} from "file-saver";
 
 @Component({
   selector: 'app-databasepatients',
@@ -51,6 +52,17 @@ export class DatabasepatientsComponent implements OnInit {
  
   volver() : void {
     this.router.navigate(['/databases']);
+  }
+
+  exportar(): void {
+    this.service.exportar(this.id).subscribe(blob => {
+      var fileName = 'pacientes.csv';
+      importedSaveAs(blob, fileName)
+    },
+    error => {
+      console.log(error);
+      
+    });
   }
 
 }

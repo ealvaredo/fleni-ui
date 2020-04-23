@@ -3,13 +3,13 @@
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th>Nombre</th> 
-          <th>Fecha</th> 
+          <th>Nombre</th>
+          <th>Fecha</th>
           <th>URL</th>
-          <th>Descripción</th> 
-          <th>Configurar</th> 
-          <th>Ver pacientes</th> 
-          <th>Eliminar</th> 
+          <th>Descripción</th>
+          <th>Configurar</th>
+          <th>Ver pacientes</th>
+          <th>Eliminar</th>
         </tr>
       </thead>
       <tbody>
@@ -18,22 +18,23 @@
           <td scope="row"> {{database.date |date:'dd-MM-yyyy HH:mm'}} </td>
           <td scope="row"> {{database.site}} </td>
           <td scope="row"> {{database.description}} </td>
-          <td scope="row"> 
+          <td scope="row">
             <img src="../assets/images/edit.png" title="Ver más información" (click)='onEdit(database.id)'>
           </td>
-          <td scope="row"> 
-               <img src="../assets/images/eye.png" title="Ver pacientes" (click)='onPatients(database.id)'>
-            </td>
-            <td scope="row"> 
-              <img src="../assets/images/trash.png" title="Eliminar" (click)='onDelete(database.id)'>
-           </td>
+          <td scope="row">
+            <img src="../assets/images/eye.png" title="Ver pacientes" (click)='onPatients(database.id)'>
+          </td>
+          <td scope="row">
+            <img src="../assets/images/trash.png" title="Eliminar" (click)='onDelete(database.id)'>
+          </td>
 
-          </tr>
+        </tr>
       </tbody>
     </table>
   </div>
   <div class='rounded border p-3 '>
     <button type="button" class="btn btn-outline-primary" (click)="volver()">Volver</button>
+ 
   </div>
 
 </div>

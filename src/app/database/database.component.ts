@@ -36,6 +36,8 @@ export class DatabaseComponent implements OnInit {
     this.router.navigate(['/launcher']);
   }
 
+  
+
 
 
 }
