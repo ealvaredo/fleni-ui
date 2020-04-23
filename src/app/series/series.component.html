@@ -18,6 +18,7 @@
                     <th title='Indica el estado de conversión a formato NII'>Formato NII</th>
                     <th title='Indica el estado de procesamiento de FA'>FA</th>
                     <th title='Indica el estado de procesamiento de TBSS'>TBSS</th>
+                    <th title='Indica el estado de procesamiento de TRACTSEG'>TRACTSEG</th>
                     <th>Comparar</th>
                     <!--                    <th>Comparar en escala</th>
                     <th title='Realiza una comparación usando los datos de la base de datos Brain Growth Charts'>
@@ -82,6 +83,11 @@
                             <p *ngIf="serie.tbss != null && serie.tbss.state === 'PROCESSED'">{{serie.tbss.state}} ({{serie.tbss.fin  | date:'dd-MM-yyyy HH:mm'}})</p>
                             <p  *ngIf="serie.tbss != null && serie.tbss.state != 'PROCESSED'" title='{{serie.tbss.description}}'>{{serie.tbss.state}} ({{serie.tbss.inicio  | date:'dd-MM-yyyy HH:mm'}})</p>
                     </td>
+
+                    <td>
+                        <p *ngIf="serie.tractSeg != null && serie.tractSeg.state === 'PROCESSED'">{{serie.tractSeg.state}} ({{serie.tractSeg.fin  | date:'dd-MM-yyyy HH:mm'}})</p>
+                        <p  *ngIf="serie.tractSeg != null && serie.tractSeg.state != 'PROCESSED'" title='{{serie.tractSeg.description}}'>{{serie.tractSeg.state}} ({{serie.tractSeg.inicio  | date:'dd-MM-yyyy HH:mm'}})</p>
+                </td>
 
                     <!-- <td><img [src]="descagarImg" (click)="verImagenes(serie.id)"></td>-->
                     <td>
