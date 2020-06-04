@@ -14,7 +14,8 @@ export class PacientesComponent implements OnInit {
   @Output() onEstudios: EventEmitter<string> = new EventEmitter<string>();
   @Output() onSearchChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() onBack: EventEmitter<void> = new EventEmitter<void>();
-  
+  @Output() onDescargar: EventEmitter<void> = new EventEmitter<void>();
+
 
   busqueda: string;
 
@@ -25,7 +26,7 @@ export class PacientesComponent implements OnInit {
   }
 
   verEstudios(paciente: string): void {
-   console.log(paciente);
+    console.log(paciente);
     this.onEstudios.emit(paciente);
   }
 
@@ -33,8 +34,8 @@ export class PacientesComponent implements OnInit {
     console.log(text);
     this.busqueda = text;
     this.onSearchChange.emit(text);
-  }  
-  
+  }
+
   deletePatient(idPaciente: string) {
     this.patientService.delete(idPaciente).subscribe(data => this.buscar(this.busqueda));
   }
@@ -65,5 +66,8 @@ export class PacientesComponent implements OnInit {
     this.onBack.emit();
   }
 
-
+  descargar() {
+    this.onDescargar.emit();
+  }
+ß
 }
