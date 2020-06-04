@@ -67,6 +67,8 @@ export class PacientesComponent implements OnInit {
   }
 
   descargar() {
+    console.log("click en accion de descargar.");
+    
     this.onDescargar.emit();
   }
 ß

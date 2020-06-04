@@ -4,6 +4,7 @@ import { PatientService } from '../patient.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import {saveAs as importedSaveAs} from "file-saver";
 
 
 @Component({
@@ -35,10 +36,22 @@ export class CognitivosComponent implements OnInit {
   }
 
   descargar() {
-
+    console.log("Descargondo connitivos.");
     const options = { responseType: 'blob' as 'json' }
     
-    return this.http.get<Blob>(environment.apiUrl + '/patient/descargarCognitivos',  options);
+    return this.http.get<Blob>(environment.apiUrl + '/patient/descargarCognitivos',  options).
+    subscribe(blob => {
+      var fileName = 'pacientes.csv';
+      importedSaveAs(blob, fileName)
+    },
+    error => {
+      console.log(error);
+      
+    });
+
+
+    
+    
   }
 
 }
