@@ -2,10 +2,29 @@
 
   <h1>{{titulo}}</h1>
 </div>
-<div class='container' >
+<div class='container'>
   <div class='form-group'>
     <label>Ingresar nombre del paciente</label>
     <input type="text" class="form-control" (keyup)="buscar($event.target.value)">
+
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="serie.id"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ACCIONES
+      </button>
+      <div class="dropdown-menu" aria-labelledby="acccionesLista">
+              <button title="Descargar listado" class="dropdown-item" type="button" (click)="descargar()">Descargar listado</button>
+             
+
+      </div>
+  </div>
+
+
+
+
+
+
   </div>
 </div>
 
@@ -73,5 +92,5 @@
     comparación</button>-->
   <!--<button *ngIf="patologicos" type="button" class="btn btn-outline-primary" (click)="generarReporteReducido()">Descargar
     comparación reducida</button>-->
- <!-- <p *ngIf="patologicos &&  porcentajeDescaga != null">{{porcentajeDescaga}}%</p>-->
+  <!-- <p *ngIf="patologicos &&  porcentajeDescaga != null">{{porcentajeDescaga}}%</p>-->
 </div>
