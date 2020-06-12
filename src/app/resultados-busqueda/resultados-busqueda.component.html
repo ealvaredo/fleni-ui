@@ -2,7 +2,9 @@
 (onEstudios)="verEstudios($event)"
 (onSearchChange)="buscar($event)"
 [titulo]="'Buscar paciente'" 
-(onBack)="volver()"></app-pacientes>
+(onBack)="volver()"
+(onDescargar)="descargar()">
+</app-pacientes>
 
     <div class='rounded border p-3 '>
             <button *ngIf="patologicos" type="button" class="btn btn-outline-primary" (click)="generarReporte()">Descargar comparación</button>

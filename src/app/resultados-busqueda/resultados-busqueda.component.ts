@@ -7,6 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Patient } from '../Patient';
 import { Study } from '../Study';
 import {saveAs as importedSaveAs} from "file-saver";
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-resultados-busqueda',
@@ -29,7 +31,7 @@ export class ResultadosBusquedaComponent implements OnInit {
 
 
   constructor(private pacienteService: PatientService, private router: Router, 
-    private route: ActivatedRoute, private patientService: PatientService) { }
+    private route: ActivatedRoute, private patientService: PatientService, private http: HttpClient) { }
 
   ngOnInit() {
         
@@ -211,6 +213,28 @@ sano(idPaciente: string) {
       this.patientService.calcularPorcentajeDescarga().subscribe(data => this.actualizarPorcentaje(data));
     }
   }
+
+
+  descargar() {
+    console.log("Descargondo pacientes.");
+    const options = { responseType: 'blob' as 'json' }
+    
+    return this.http.get<Blob>(environment.apiUrl + '/patient/descargarPacientes',  options).
+    subscribe(blob => {
+      var fileName = 'pacientes.csv';
+      importedSaveAs(blob, fileName)
+    },
+    error => {
+      console.log(error);
+      
+    });
+
+
+    
+    
+  }
+
+
 /*
   onSearchChange(text: string) {
    
