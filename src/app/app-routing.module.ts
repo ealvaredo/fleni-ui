@@ -40,6 +40,7 @@ import { TbssseriesComponent } from './tbssseries/tbssseries.component';
 import {SerieComponent} from './serie/serie.component';
 import {TractsegComponent} from './tractseg/tractseg.component'
 import { TractsegseriesComponent } from './tractsegseries/tractsegseries.component';
+import { PacientescandidatostractometryComponent } from './pacientescandidatostractometry/pacientescandidatostractometry.component';
 
 
 const appRoutes: Routes = [
@@ -92,6 +93,7 @@ const appRoutes: Routes = [
   {path: 'serie/:id', component: SerieComponent},
   {path: '**', component: PageNotFoundComponent },
   { path: 'error/:error', component: PageNotFoundComponent },
+  {path: 'pacientescandidatostractometry' , component: PacientescandidatostractometryComponent}
 ];
 
 @NgModule({

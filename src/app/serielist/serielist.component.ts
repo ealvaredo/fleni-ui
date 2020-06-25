@@ -183,6 +183,9 @@ export class SerielistComponent implements OnInit {
     this.serieService.eliminarSerie(serie).subscribe(data => this.verSeries(this.study));
   }
 
+  tractometry(serie: string) : void {
+    this.router.navigate(['/pacientescandidatostractometry', serie ]);
+  }
 
 
 }

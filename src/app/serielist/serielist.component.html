@@ -104,7 +104,8 @@
                 <td>
                     <p *ngIf="serie.tractSeg != null && serie.tractSeg.state === 'PROCESSED'">{{serie.tractSeg.state}}
                         ({{serie.tractSeg.fin  | date:'dd-MM-yyyy HH:mm'}})</p>
-                    <p *ngIf="serie.tractSeg != tractSeg && serie.tractSeg.state != 'PROCESSED'" title='{{serie.tractSeg.description}}'>
+                    <p *ngIf="serie.tractSeg != tractSeg && serie.tractSeg.state != 'PROCESSED'"
+                        title='{{serie.tractSeg.description}}'>
                         {{serie.tractSeg.state}}
                         ({{serie.tractSeg.inicio  | date:'dd-MM-yyyy HH:mm'}})</p>
                 </td>
@@ -119,9 +120,19 @@
                             ACCIONES
                         </button>
                         <div class="dropdown-menu" aria-labelledby="serie.id">
-                                <button title="Reprocessar NII" class="dropdown-item" type="button" (click)="reprocesarNII(serie.id)">Reprocesar NII</button>
-                                <button *ngIf="serie.dicomToNii && serie.dicomToNii.state === 'PROCESSED'" title="Reprocessar FA" class="dropdown-item" type="button" (click)="reprocesarFA(serie.id)">Reprocesar FA</button>
-                                <button *ngIf="serie.fdtPipeLine && serie.fdtPipeLine.state === 'PROCESSED'" title="Reprocessar TBSS" class="dropdown-item" type="button" (click)="reprocesarTBSS(serie.id)">Reprocesar TBSS</button>
+
+                            <button title="Tractomery" class="dropdown-item" type="button"
+                                (click)="tractometry(serie.id)">Tractometry</button>
+
+
+                            <button title="Reprocessar NII" class="dropdown-item" type="button"
+                                (click)="reprocesarNII(serie.id)">Reprocesar NII</button>
+                            <button *ngIf="serie.dicomToNii && serie.dicomToNii.state === 'PROCESSED'"
+                                title="Reprocessar FA" class="dropdown-item" type="button"
+                                (click)="reprocesarFA(serie.id)">Reprocesar FA</button>
+                            <button *ngIf="serie.fdtPipeLine && serie.fdtPipeLine.state === 'PROCESSED'"
+                                title="Reprocessar TBSS" class="dropdown-item" type="button"
+                                (click)="reprocesarTBSS(serie.id)">Reprocesar TBSS</button>
 
                             <button title="Visualizar FA" class="dropdown-item" type="button"
                                 (click)="visualizarFA(serie.id)">Ver FA</button>
@@ -139,8 +150,10 @@
                                 title="Comparar con pacientes de la base de datos Brain Growth Charts usando factor de escala"
                                 class="dropdown-item" type="button" (click)="compararUscEscala(serie.id)">Comparar
                                 pediátricos (en escala)</button>
-                                <button title="Ver imágenes" class="dropdown-item" type="button" (click)="verImagenes(serie.id)">Ver imágenes</button>
-                                <button title="Eliminar serie" class="dropdown-item" type="button" (click)="eliminarSerie(serie.id)">Eliminar serie</button>
+                            <button title="Ver imágenes" class="dropdown-item" type="button"
+                                (click)="verImagenes(serie.id)">Ver imágenes</button>
+                            <button title="Eliminar serie" class="dropdown-item" type="button"
+                                (click)="eliminarSerie(serie.id)">Eliminar serie</button>
 
                         </div>
                     </div>

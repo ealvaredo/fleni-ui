@@ -307,51 +307,58 @@ export class SerieService {
 
   changeFaState(serie: string, state: string) {
 
-    return this.http.post<void>(this.studyUrl + "/fa/changeState", 
+    return this.http.post<void>(this.studyUrl + "/fa/changeState",
       {
         'id': serie, 'fdtPipeLine': { 'state': state }
       }
-   )
+    )
 
   }
 
   changeNIIState(serie: string, state: string) {
 
-    return this.http.post<void>(this.studyUrl + "/nii/changeState", 
+    return this.http.post<void>(this.studyUrl + "/nii/changeState",
       {
         'id': serie, 'dicomToNii': { 'state': state }
       }
-   )
+    )
   }
 
   changeTbssState(serie: string, state: string) {
 
-    return this.http.post<void>(this.studyUrl + "/tbss/changeState", 
+    return this.http.post<void>(this.studyUrl + "/tbss/changeState",
       {
         'id': serie, 'tbss': { 'state': state }
       }
-   )
+    )
   }
 
   eliminarSerie(serie: string) {
 
-    return this.http.post<void>(this.studyUrl + "/eliminar", 
+    return this.http.post<void>(this.studyUrl + "/eliminar",
       {
         'id': serie
       }
-   )
+    )
   }
 
   changeFreesurferState(serie: string, state: string) {
 
-    return this.http.post<void>(this.studyUrl + "/freesurfer/changeState", 
-    {
-      'id': serie, 'freesurfer': { 'state': state }
-    }
- )
+    return this.http.post<void>(this.studyUrl + "/freesurfer/changeState",
+      {
+        'id': serie, 'freesurfer': { 'state': state }
+      }
+    )
   }
 
-  
+  /**
+   * Va a buscar los candidatos para realizar la comparación de tractometry.
+   * @param serie 
+   */
+  tractometry(serie: string) : Observable<Patient[]>{
+    return this.http.post<Patient[]>(this.studyUrl + "/tractseg/candidates", {"id" : serie});
+  }
+
 
 
 

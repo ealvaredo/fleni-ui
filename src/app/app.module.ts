@@ -66,6 +66,8 @@ import { SerieComponent } from './serie/serie.component';
 import { TractsegComponent } from './tractseg/tractseg.component';
 import { CardlauncherComponent } from './component/cardlauncher/cardlauncher.component';
 import { TractsegseriesComponent } from './tractsegseries/tractsegseries.component';
+import { PatientscandidatesComponent } from './components/lists/patientscandidates/patientscandidates.component';
+import { PacientescandidatostractometryComponent } from './pacientescandidatostractometry/pacientescandidatostractometry.component';
 registerLocaleData(localeFr, 'es-AR');
 const appRoutes: Routes = [
   { path: 'search/:name',      component: BusquedaComponent },
@@ -126,7 +128,9 @@ const appRoutes: Routes = [
     SerieComponent,
     TractsegComponent,
     CardlauncherComponent,
-    TractsegseriesComponent
+    TractsegseriesComponent,
+    PatientscandidatesComponent,
+    PacientescandidatostractometryComponent
   ],
   imports: [
 
