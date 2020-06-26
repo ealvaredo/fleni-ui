@@ -53,13 +53,13 @@
                       </td>
 
                     <td>
-                        <div *ngIf="patient.tbssProcess != null && patient.tractSeg.state == 'ERROR'">Ver Error</div>
-                        <div *ngIf="patient.tbssProcess != null && patient.tractSeg.state == 'QUEUE'">En cola</div>
-                        <div *ngIf="patient.tbssProcess != null && patient.tractSeg.state == 'PROCESSING'">Procesando
+                        <div *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'ERROR'">Ver Error</div>
+                        <div *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'QUEUE'">En cola</div>
+                        <div *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'PROCESSING'">Procesando
                         </div>
-                        <img *ngIf="patient.tbssProcess != null && patient.tractSeg.state == 'PROCESSED'"
-                            src="../assets/images/tractometry.png" (click)="verTractSeg(patient.id)" title="Ver TBSS">
-                        <div *ngIf="patient.tbssProcess != null && patient.tractSeg.state == 'NEW'">Esperando FDT
+                        <img *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'PROCESSED'"
+                            src="../assets/images/tractometry.png" (click)="verTractSeg(patient.id)" title="Ver TractSeg">
+                        <div *ngIf="patient.tractSeg != null && patient.tractSeg.state == 'NEW'">Esperando FDT
                         </div>
                     </td>
                     <td>
