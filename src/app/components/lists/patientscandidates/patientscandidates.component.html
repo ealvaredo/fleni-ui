@@ -41,6 +41,18 @@
                         </div>
                     </td>
                     <td>
+                        <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'ERROR'">Ver Error</div>
+                        <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'QUEUE'">En cola</div>
+                        <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'PROCESSING'">Procesando</div>
+                        <img *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'PROCESSED'" src="../assets/images/tbss.png" (click)="verTbss(patient.id)" title="Ver TBSS">
+                        <div *ngIf="patient.tbssProcess != null && patient.tbssProcess.state == 'NEW'">Esperando FDT</div>
+            
+                        <!--
+                            <input *ngIf="patient.tbsState == 'NEW'" type="checkbox" (click)="onDti(patient.id)" title='Procesar dti.'>
+                        -->
+                      </td>
+
+                    <td>
                         <div *ngIf="patient.tbssProcess != null && patient.tractSeg.state == 'ERROR'">Ver Error</div>
                         <div *ngIf="patient.tbssProcess != null && patient.tractSeg.state == 'QUEUE'">En cola</div>
                         <div *ngIf="patient.tbssProcess != null && patient.tractSeg.state == 'PROCESSING'">Procesando
