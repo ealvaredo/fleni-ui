@@ -91,9 +91,9 @@ const appRoutes: Routes = [
   {path: 'tbssseries/:status', component: TbssseriesComponent},
   {path: 'tractsegseries/:status', component: TractsegseriesComponent},
   {path: 'serie/:id', component: SerieComponent},
+  {path: 'pacientescandidatostractometry/:serie' , component: PacientescandidatostractometryComponent},
   {path: '**', component: PageNotFoundComponent },
   { path: 'error/:error', component: PageNotFoundComponent },
-  {path: 'pacientescandidatostractometry' , component: PacientescandidatostractometryComponent}
 ];
 
 @NgModule({

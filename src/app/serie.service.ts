@@ -356,7 +356,7 @@ export class SerieService {
    * @param serie 
    */
   tractometry(serie: string) : Observable<Patient[]>{
-    return this.http.post<Patient[]>(this.studyUrl + "/tractseg/candidates", {"id" : serie});
+    return this.http.post<Patient[]>(environment.apiUrl + "/tractometry/candidates", {"id" : serie});
   }
 
 
